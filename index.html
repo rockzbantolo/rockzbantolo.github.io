@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rocky John Bantolo | Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-/+0dj5W+NoNxF9TXLZ9KrgUNqZH0e37FsmvFN9YNSXk5s5a3RmcpkU5dMBu+uWWMWNWYoD6j2vNm9X4FwZyYZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <script>
+    function typeText(elementId, text, delay = 100, callback = () => {}) {
+      const el = document.getElementById(elementId);
+      let i = 0;
+      const interval = setInterval(() => {
+        el.textContent += text.charAt(i);
+        i++;
+        if (i === text.length) {
+          clearInterval(interval);
+          callback(); // Start next typing
+        }
+      }, delay);
+    }
+
+    // Run first name, then last name
+    window.addEventListener('DOMContentLoaded', () => {
+      typeText("name", "Rocky John M. Bantolo", 100, () => {
+        setTimeout(() => {
+          typeText("role", "Software Developer", 100);
+        }, 500); // short pause before last name
+      });
+    });
+  </script>
+
+  <script>
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+
+    document.querySelectorAll('.zoom-img').forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.dataset.large || img.src;
+      });
+    });
+
+    modal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+    
+  </script>
+
+  <div id="layout-container">
+    <div class="main-content">
+      <div class="main-flex-container">
+
+        <!-- Left Panel -->
+        <div class="left-panel">
+          <div class="profile-header">
+            <img src="assets/images/Profile.jpg" alt="RockZ Photo" class="profile-pic" onerror="this.onerror=null;this.src='assets/images/default.png';" />
+
+        <div class="profile-name">
+          <h1>
+            <span id="name" class="typewriter-text"></span>
+            <span id="role" class="typewriter-text"></span>
+          </h1>
+        </div>  
+
+        </div>
+          <div class="content-wrapper">
+
+            <div class="info-card">
+              <h2>About Me</h2>
+              <p>
+                I'm a software developer with 3 years of experience in desktop applications, mainly using C# and WinForms.
+                I work with MySQL, build REST APIs, and handle backend tasks. I also do system analysis, write documentation, 
+                and work closely with users to make sure the software fits their needs. I'm always eager to learn and improve my skills
+              </p>
+
+            </div>
+
+            <div class="info-card">
+              <h2>Skills</h2>
+              <div class="skills">
+                <span>C#</span>
+                <span>VB.Net</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>WinForms</span>
+                <span>MySQL</span>
+                <span>PHP</span>
+                <span>REST Api</span>
+              </div>
+              
+              <h2>Technical Skills</h2>
+              <div class="skills">
+                <span>Diagnosing and resolving hardware & software issues </span>
+                <span>Network troubleshooting & system maintenance</span>
+                <span>Software installation & configuration</span>
+              </div>
+
+            </div>
+
+            <div class="info-card">
+              <h2>Contact</h2>
+              <p>Email: rocky.bantolo@gmail.com</p>
+              <p>Contact No: +63 961-408-8337</p>
+              <p>Location: Philippines</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+          <div class="project-panel">
+            <h2>Projects</h2>
+            <div class="scrollable-projects">
+
+              <div class="project">
+                <h3>Management Information System</h3>            
+                <p>Built with C# and WinForms, utilizing MySQL for database management. Optimized the 
+                  source code and database using stored procedures and scheduled events for better performance.</p>
+
+                <div class="project-gallery">
+
+                    <a href="assets/images/MIS/mis-dashboard.jpg" target="_blank">
+                      <img src="assets/images/MIS/mis-dashboard.jpg" alt="Home Page"> 
+                    </a>
+
+                    <a href="assets/images/MIS/mis-billing.jpg" target="_blank">
+                      <img src="assets/images/MIS/mis-billing.jpg" alt="Billing">
+                    </a>
+
+                    <a href="assets/images/MIS/mis-helpdesk.jpg" target="_blank">
+                      <img src="assets/images/MIS/mis-helpdesk.jpg" alt="Helpdesk">
+                    </a>
+
+                    <a href="assets/images/MIS/mis-services.jpg" target="_blank">
+                      <img src="assets/images/MIS/mis-services.jpg" alt="Services"> 
+                    </a>
+
+                    <a href="assets/images/MIS/mis-inventory.jpg" target="_blank">
+                      <img src="assets/images/MIS/mis-inventory.jpg" alt="Inventory"> 
+                    </a>
+
+                  </div>
+              </div>
+
+              <div class="project">
+                <h3>Service Management System</h3>            
+                <p>Built with C# and Winforms Using Entity Frameworks. MySQL for Database</p>
+
+                <div class="project-gallery">
+                    <a href="assets/images/SMS/Sms-Login.jpg" target="_blank">
+                      <img src="assets/images/SMS/Sms-Login.jpg" alt="Login">
+                    </a>
+
+                    <a href="assets/images/SMS/Sms-Services.jpg" target="_blank">
+                      <img src="assets/images/SMS/Sms-Services.jpg" alt="Services">
+                    </a>
+
+                    <a href="assets/images/SMS/Sms-Stores.jpg" target="_blank">
+                      <img src="assets/images/SMS/Sms-Stores.jpg" alt="Stores"> 
+                    </a>
+
+                    <a href="assets/images/SMS/Sms-Users.jpg" target="_blank">
+                      <img src="assets/images/SMS/Sms-Users.jpg" alt="Users"> 
+                    </a>
+
+                    <a href="assets/images/SMS/Sms-New-User.jpg" target="_blank">
+                      <img src="assets/images/SMS/Sms-New-User.jpg" alt="Users"> 
+                    </a>
+                  </div>
+              </div>
+
+              <div class="project">
+                <h3> Services Monitoring System</h3>            
+                <p>Built with C#, Winforms and REST Api(PHP). MySQL for Database to Monitor On-going Services of Clients</p>
+                <div class="project-gallery">
+                    <a href="assets/images/SMNT/Smnt-Dashboard.jpg" target="_blank">
+                      <img src="assets/images/SMNT/Smnt-Dashboard.jpg" alt="Dashboard">
+                    </a>
+                    <a href="assets/images/SMNT/Smnt-Job-Details.jpg" target="_blank">
+                      <img src="assets/images/SMNT/Smnt-Job-Details.jpg" alt="Job Details">
+                    </a>
+                    <a href="assets/images/SMNT/Smnt-LookUp.jpg" target="_blank">
+                      <img src="assets/images/SMNT/Smnt-LookUp.jpg" alt="Job LookUp"> 
+                    </a>
+                  </div>
+              </div>
+
+              <div class="project">
+                <h3> Reports Generator</h3>            
+                <p>Build with C# and Winforms to support users to generate an efficient reports that took them 
+                  1 week to Generate after using the application it took them 10 seconds</p>
+                <div class="project-gallery">
+                    <a href="assets/images/RGen/Rgen-Main.jpg" target="_blank">
+                      <img src="assets/images/RGen/Rgen-Main.jpg" alt="Main">
+                    </a>
+                  </div>
+              </div>
+
+              <!-- Add more projects here -->
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>
