@@ -1,221 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rocky John Bantolo | Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-/+0dj5W+NoNxF9TXLZ9KrgUNqZH0e37FsmvFN9YNSXk5s5a3RmcpkU5dMBu+uWWMWNWYoD6j2vNm9X4FwZyYZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocky John Bantolo | Software Developer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
-
-  <script>
-    function typeText(elementId, text, delay = 100, callback = () => {}) {
-      const el = document.getElementById(elementId);
-      let i = 0;
-      const interval = setInterval(() => {
-        el.textContent += text.charAt(i);
-        i++;
-        if (i === text.length) {
-          clearInterval(interval);
-          callback(); // Start next typing
-        }
-      }, delay);
-    }
-
-    // Run first name, then last name
-    window.addEventListener('DOMContentLoaded', () => {
-      typeText("name", "Hi I`m Rocky", 100, () => {
-        setTimeout(() => {
-          typeText("role", "Software Developer", 100);
-        }, 500); // short pause before last name
-      });
-    });
-  </script>
-
-  <script>
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-
-    document.querySelectorAll('.zoom-img').forEach(img => {
-      img.addEventListener('click', () => {
-        modal.style.display = 'flex';
-        modalImg.src = img.dataset.large || img.src;
-      });
-    });
-
-    modal.addEventListener('click', () => {
-      modal.style.display = 'none';
-    });
-    
-  </script>
-
-  <div id="layout-container">
-    <div class="main-content">
-      <div class="main-flex-container">
-
-        <!-- Left Panel -->
-        <div class="left-panel">
-          <div class="profile-header">
-           
-            <div class="profile-name">
-              <h1>
-                <span id="name" class="typewriter-text"></span>
-                <span id="role" class="typewriter-text"></span>
-              </h1>
-            </div>  
-
-          </div>
-          <div class="content-wrapper">
-
-            <div class="info-card">
-              <h2>About Me</h2>
-              <p>
-                I'm a software developer with 3 years of experience in desktop applications, mainly using C# and WinForms.
-                I work with MySQL, build REST APIs, and handle backend tasks. I also do system analysis, write documentation, 
-                and work closely with users to make sure the software fits their needs. I'm always eager to learn and improve my skills
-              </p>
-
+    <!-- Animated Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="profile-pic-container">
+                <img src="assets/images/profile.jpg" alt="Rocky John Bantolo" class="profile-pic">
+                <div class="glow-effect"></div>
             </div>
+            <h1 class="glow-text">Rocky John M. Bantolo</h1>
+            <div class="typewriter">
+                <span id="dynamic-text"></span>
+                <span class="cursor">|</span>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/rockzbantolo" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/rocky-john-bantolo-19952930a" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/Rocky.Bantolo" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </header>
 
-            <div class="info-card">
-              <h2>Skills</h2>
-              <div class="skills">
-                <span>C#</span>
-                <span>VB.Net</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>WinForms</span>
-                <span>MySQL</span>
-                <span>PHP</span>
-                <span>REST Api</span>
+    <!-- Main Content - Vertical Stack -->
+    <main class="main-stack">
+        <!-- About Section -->
+        <section class="card about-section">
+           <h2 class="section-header">
+              <i class="fas fa-user"></i>About Me
+            </h2>
+            <p>I'm a software developer with 3 years of experience in desktop applications, mainly using C# and WinForms. I work with MySQL, build REST APIs, and handle backend tasks.</p>
+            <br>
+            <div class="skills-section">
+                <h3><i class="fas fa-code"></i> Tech Stack</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fab fa-microsoft skill-icon"></i>
+                        <span>C#</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-window-maximize skill-icon"></i>
+                        <span>VB.Net</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-database skill-icon"></i>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <span>HTML/CSS</span>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-php skill-icon"></i>
+                        <span>PHP</span>
+                    </div>
+                    <!-- Add more skills -->
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Projects Carousel -->
+        <section class="card projects-section">
+            <h2 class="section-header">
+                <i class="fas fa-code"></i>My Projects
+            </h2>
+            <div class="projects-carousel">
+                <div class="carousel-container">
+                    <!-- Project Slides -->
+                    <div class="carousel-slide active">
+                        <div class="project-image">
+                            <img src="assets/images/SMS/Sms-Services.jpg" alt="Service Management System">
+                        </div>
+                        <div class="project-info">
+                            <h3>Service Management System</h3>
+                            <p>A Windows-based Service Management System built with C# and WinForms. 
+                              It tracks services, manages inventory, generates reports, 
+                              provides a live dashboard, and includes secure user access with encryption
+                            </p>
+                            <!-- <a href="#" class="project-link">View Details</a> -->
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <div class="project-image">
+                            <img src="assets/images/SMNT/Smnt-Dashboard.jpg" alt="Dashboard">
+                        </div>
+                        <div class="project-info">
+                            <h3>Service Monitoring System</h3>
+                            <p>Designed to streamline operational 
+                              oversight by enabling users to track ongoing services and manage 
+                              inventory.
+                              users can generate reports and export them as 
+                              Excel files—making it easy to analyze data, share updates, 
+                              and support informed decision-making</p>
+                      
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="project-image">
+                            <img src="assets/images/MIS/mis-billing.jpg" alt="Billing">
+                        </div>
+                        <div class="project-info">
+                            <h3>Management Information System</h3>
+                            <p>Building and optimizing a full MIS with modules for 
+                              billing, helpdesk, and inventory. Improved API and database 
+                              performance for better system efficiency</p>
+                         
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <div class="project-image">
+                            <img src="assets/images/RGen/Rgen-Main.jpg" alt="Dashboard">
+                        </div>
+                        <div class="project-info">
+                            <h3>Report Builder</h3>
+                            <p>An automated reporting engine that transforms 
+                              raw Excel data into clean, customizable reports through 
+                              parsing and data structuring</p>
+                
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <div class="project-image">
+                            <img src="assets/images/SRM/Registration.jpg" alt="Registration">
+                        </div>
+                        <div class="project-info">
+                            <h3>Student Management System</h3>
+                            <p>Developed using VB.Net for thesis</p>
+                
+                        </div>
+                    </div>
+
+                    <!-- Add more slides -->
+                </div>
+                
+                <!-- Carousel Controls -->
+                <button class="carousel-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-arrow next"><i class="fas fa-chevron-right"></i></button>
+                
+                <!-- Indicators -->
+                <div class="carousel-indicators"></div>
+            </div>
+        </section>
+
+                <!-- Experience experience -->
+        <section class="card experience-section">
+         <h2 class="section-header">
+            <i class="fas fa-briefcase"></i>Experiences
+        </h2>
+           <div class="experience-container">
+              <!-- Left Column -->
+              <div class="experience-column left">
+                
+                  <div class="experience-item">
+                    <div class="experience-content">
+                        <h3>Software Developer</h3>
+                        <p class="experience-meta">
+                            <span><i class="fas fa-building"></i>Castles PH</span>
+                            <span class="divider">|</span>
+                            <span class="date">
+                                <i class="fas fa-calendar-alt"></i> 2022 - Present
+                            </span>
+                        </p>
+                      <ul class="experience-description">
+                        <li>Enhanced and optimized the Management Information System (MIS) by improving database queries, UI workflows, and overall system performance</li>
+                        <li>Designed and developed software solutions to automate manual business processes using <span class="tech">C#</span>, <span class="tech">MySQL</span>, and <span class="tech">WinForms</span></li>
+                        <li>Developed UX/UI using <span class="tech">WinForms</span>, focusing on layout optimization, user flow, and usability</li>
+                        <li>Managed <span class="tech">AWS</span> cloud server, including software deployment, system configuration, and remote access setup</li>
+                        <li>Tuned and maintained relational databases using stored procedures, triggers, functions, and scheduled events for better reliability and speed</li>
+                        <li>Provided technical support and conducted user training to support system adoption</li>
+                        <li>Designed and implemented <span class="tech">RESTful</span> endpoints in <span class="tech">PHP</span> to support scalable system integrations</li>
+                        <li>Created custom reports for data analysis using <span class="tech">Excel</span>, <span class="tech">RDLC</span>, and <span class="tech">Crystal Reports</span></li>
+                                    
+                        <!-- Add all other points -->
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="experience-item">
+                    <div class="experience-content">
+                        <h3>Data Analyst</h3>
+                        <p class="experience-meta">
+                            <span class=""><i class="fas fa-building"></i>Freight Process Outsourcing Solutions Inc.</span>
+                            <span class="divider">|</span>
+                            <span class="date">
+                                <i class="fas fa-calendar-alt"></i> 2021 - 2022
+                            </span>
+                        </p>
+                      <ul class="experience-description">
+                        <li>Consistently met and exceeded daily data processing while maintaining quality standards. /span></li>
+                        <li>Applied complex formulas and verification procedures to ensure data accuracy. </li>
+                        <li>Keeping records of data sources, logic applied, and reporting methodologies </li>
+                        <li>Utilized Excel and SQL to efficiently process and analyze data, generating insights for decision-making. /li>
+                                    <!-- Add all other points -->
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Add odd-numbered items here (1,3,5...) -->
+              </div>
+
+              <!-- experience Center Line -->
+              <div class="experience-line"></div>
+
+              <!-- Right Column -->
+              <div class="experience-column right">
+
+                  <div class="experience-item">
+                    <div class="experience-content">
+                        <h3>IT Specialist</h3>
+                        <p class="experience-meta">
+                            <span class=""><i class="fas fa-building"></i>Promerch Unlimited Inc.</span>
+                            <span class="divider">|</span>
+                            <span class="date">
+                                <i class="fas fa-calendar-alt"></i> 2015 - 2016
+                            </span>
+                        </p>
+                        
+                        <ul class="experience-description">
+                              <li>Compiled and analyzed inventory data, generating daily, weekly,and monthly reports with actionable statistics. </span></li>
+                              <li>Created detailed reports and trend analyses to support strategic decision-making. </li>
+                              <li>Provided technical support for hardware, software, and network-related issues, ensuring minimal downtime. </li>
+                              <li>Collaborated with coordinators to resolve inventory discrepancies and optimize stock mgt.</li>
+                        </ul>
+      
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="experience-item">
+                    <div class="experience-content">
+                        <h3>Bagger</h3>
+                        <p class="experience-meta">
+                            <span class=""><i class="fas fa-building"></i>Cherry Foodarama</span>
+                            <span class="divider">|</span>
+                            <span class="date">
+                                <i class="fas fa-calendar-alt"></i> 2017 - 2018
+                            </span>
+                        </p>
+                        
+                        <ul class="experience-description">
+                              <li>Customer Support and Packaging</span></li>
+                        </ul>     
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="experience-item">
+                    <div class="experience-content">
+                        <h3>IT Staff (Intern)</h3>
+                        <p class="experience-meta">
+                            <span class=""><i class="fas fa-building"></i>AMA Computer Learning Center - Mandaluyong</span>
+                            <span class="divider">|</span>
+                            <span class="date">
+                                <i class="fas fa-calendar-alt"></i> 2015 - 2016
+                            </span>
+                        </p>
+                        
+                        <ul class="experience-description">
+                              <li>Hardware and Software Troubleshooting</span></li>
+                              <li>Network Troubleshooting</span> to support strategic decisions</li>
+                              <li>Technical support to students</li>
+                              <li>Monitoring Inventory</li>
+                        </ul>
+      
+                      </ul>
+                    </div>
+                  </div>
+
+                  
+                  <div class="experience-item">
+                    <div class="experience-content">
+                        <h3>Service Crew - Stock Man</h3>
+                        <p class="experience-meta">
+                            <span class=""><i class="fas fa-building"></i>Jolibee Foods Corp.</span>
+                            <span class="divider">|</span>
+                            <span class="date">
+                                <i class="fas fa-calendar-alt"></i> 2010 - 2011
+                            </span>
+                        </p>
+                        
+                        <ul class="experience-description">
+                              <li>Assisting customers, Managing stock inventory and deliveries</li>
+                        </ul>
+      
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Add even-numbered items here (2,4,6...) -->
               </div>
               
-              <h2>Technical Skills</h2>
-              <div class="skills">
-                <span>Diagnosing and resolving hardware & software issues </span>
-                <span>Network troubleshooting & system maintenance</span>
-                <span>Software installation & configuration</span>
-              </div>
-
             </div>
-
-            <div class="info-card">
-              <h2>Contact</h2>
-              <p>Email: rocky.bantolo@gmail.com</p>
-              <p>Contact No: +63 961-408-8337</p>
-              <p>Location: Philippines</p>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Right Panel -->
-        <div class="right-panel">
-          <div class="project-panel">
-            <h2>Projects</h2>
-            <div class="scrollable-projects">
-
-              <div class="project">
-                <h3>Service Management System</h3>            
-                <p>A desktop application. developed using C# and WinForms for the user interface, with MySQL as the backend database. 
-                  Entity Framework Core was used as the Object-Relational Mapper (ORM) for data access. Development was carried out using Visual Studio 2017, with a focus on clean, maintainable architecture.
-                  The system includes essential features such as encrypted user authentication, CRUD operations, and responsive controls, to support business workflows and performance.
-                </p>
-                <div class="project-gallery">
-                    <a href="assets/images/SMS/Sms-Login.jpg" target="_blank">
-                      <img src="assets/images/SMS/Sms-Login.jpg" alt="Login">
-                    </a>
-
-                    <a href="assets/images/SMS/Sms-Services.jpg" target="_blank">
-                      <img src="assets/images/SMS/Sms-Services.jpg" alt="Services">
-                    </a>
-
-                    <a href="assets/images/SMS/Sms-Stores.jpg" target="_blank">
-                      <img src="assets/images/SMS/Sms-Stores.jpg" alt="Stores"> 
-                    </a>
-
-                    <a href="assets/images/SMS/Sms-Users.jpg" target="_blank">
-                      <img src="assets/images/SMS/Sms-Users.jpg" alt="Users"> 
-                    </a>
-
-                    <a href="assets/images/SMS/Sms-New-User.jpg" target="_blank">
-                      <img src="assets/images/SMS/Sms-New-User.jpg" alt="Users"> 
-                    </a>
-                  </div>
-              </div>
-
-              <div class="project">
-                <h3>Management Information System</h3>            
-                <p>Developed with C# WinForms and MySQL. Focused on improving performance, modularity, and scalability by optimizing backend processes through stored 
-                  procedures, scheduled events, and code refactoring. Reengineered the database structure for better efficiency and maintainability, 
-                  and developed new functional modules to meet evolving business needs. Enhanced the overall system infrastructure to ensure smoother 
-                  operation and long-term usability.</p>
-
-                <div class="project-gallery">
-
-                    <a href="assets/images/MIS/mis-dashboard.jpg" target="_blank">
-                      <img src="assets/images/MIS/mis-dashboard.jpg" alt="Home Page"> 
-                    </a>
-
-                    <a href="assets/images/MIS/mis-billing.jpg" target="_blank">
-                      <img src="assets/images/MIS/mis-billing.jpg" alt="Billing">
-                    </a>
-
-                    <a href="assets/images/MIS/mis-helpdesk.jpg" target="_blank">
-                      <img src="assets/images/MIS/mis-helpdesk.jpg" alt="Helpdesk">
-                    </a>
-
-                    <a href="assets/images/MIS/mis-services.jpg" target="_blank">
-                      <img src="assets/images/MIS/mis-services.jpg" alt="Services"> 
-                    </a>
-
-                    <a href="assets/images/MIS/mis-inventory.jpg" target="_blank">
-                      <img src="assets/images/MIS/mis-inventory.jpg" alt="Inventory"> 
-                    </a>
-
-                  </div>
-              </div>
-
-              <div class="project">
-                <h3> Services Monitoring System</h3>            
-                <p>Developed using C# and WinForms as the frontend, with a PHP-based REST API and MySQL as the backend. 
-                  The system was designed to monitor and manage on-going client services, enabling real-time tracking, data synchronization, 
-                  and efficient service delivery.</p>
-                <div class="project-gallery">
-                    <a href="assets/images/SMNT/Smnt-Dashboard.jpg" target="_blank">
-                      <img src="assets/images/SMNT/Smnt-Dashboard.jpg" alt="Dashboard">
-                    </a>
-                    <a href="assets/images/SMNT/Smnt-Job-Details.jpg" target="_blank">
-                      <img src="assets/images/SMNT/Smnt-Job-Details.jpg" alt="Job Details">
-                    </a>
-                    <a href="assets/images/SMNT/Smnt-LookUp.jpg" target="_blank">
-                      <img src="assets/images/SMNT/Smnt-LookUp.jpg" alt="Job LookUp"> 
-                    </a>
-                  </div>
-              </div>
-
-              <div class="project">
-                <h3> Reports Generator</h3>            
-                <p>Developed with C# and WinForms, the application was designed to help users generate complex reports that previously 
-                  took up to a week to prepare manually. With the optimized system in place, the same reports can now be 
-                  generated in as little as 10 seconds, significantly improving productivity and decision-making speed.</p>
-                <div class="project-gallery">
-                    <a href="assets/images/RGen/Rgen-Main.jpg" target="_blank">
-                      <img src="assets/images/RGen/Rgen-Main.jpg" alt="Main">
-                    </a>
-                  </div>
-              </div>
-
-              <!-- Add more projects here -->
-            </div>
-          </div>
-        </div>
+        </section>
         
-      </div>
-    </div>
-  </div>
+                <!-- Education experience -->
+        <section class="education-section">
+          <h2 class="section-header">
+              <i class="fas fa-graduation-cap"></i>Education
+          </h2>
+            
+            <div class="education-experience">
+                <!-- Degree 1 -->
+                <div class="edu-item">
+                    <div class="edu-header">
+                        <h3>Bachelor of Science in Information Technology</h3>
+                        <div class="edu-meta">
+                            <span class="institution">
+                                <i class="fas fa-university"></i> Jose Rizal University
+                            </span>
+                            <span class="date">
+                                <i class="fas fa-calendar-alt"></i> 2023
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="edu-details">
+                        <ul>
+                            <li><i class="fas fa-star"></i>Thesis: Mobile weather crops prediction App</li>
+                        </ul>
+
+                        <div class="courses">
+                            <span class="course-pill">Programming</span>
+                            <span class="course-pill">Machine Learning</span>
+                            <span class="course-pill">Data Structures</span>
+                            <span class="course-pill">Multi-Media</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Degree 2 -->
+                <div class="edu-item">
+                    <div class="edu-header">
+                        <h3>Software Developer</h3>
+                        <div class="edu-meta">
+                            <span class="institution">
+                                <i class="fas fa-university"></i> Ama Computer Learning Center
+                            </span>
+                            <span class="date">
+                                <i class="fas fa-calendar-alt"></i>2012
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="edu-details">
+                        <ul>
+                            <li><i class="fas fa-star"></i>Honors: Software Developer of the Year</li>
+                            <li><i class="fas fa-star"></i>Honors: Best Thesis of the Year</li>
+                            <li><i class="fas fa-star"></i>Thesis: Student Management System</li>
+                        </ul>
+                        
+                        <div class="courses">
+                            <span class="course-pill">Programming</span>
+                            <span class="course-pill">Data Structures</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Contact Footer -->
+    <footer class="footer">
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> rocky.bantolo@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +63 961-408-8337</p>
+            <p><i class="fas fa-map-marker-alt"></i> Philippines</p>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Rocky John Bantolo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typewriter Effect
+        const roles = ["Software Developer", "Software Engineer", "IT Specialist"];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeEffect() {
+            const currentText = roles[roleIndex];
+            const dynamicText = document.getElementById('dynamic-text');
+            
+            if (isDeleting) {
+                dynamicText.textContent = currentText.substring(0, charIndex-1);
+                charIndex--;
+            } else {
+                dynamicText.textContent = currentText.substring(0, charIndex+1);
+                charIndex++;
+            }
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(typeEffect, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeEffect, 500);
+            } else {
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
+            }
+        }
+        
+        // Carousel Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            typeEffect();
+            
+            const carousel = document.querySelector('.projects-carousel');
+            const container = carousel.querySelector('.carousel-container');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const prevBtn = carousel.querySelector('.prev');
+            const nextBtn = carousel.querySelector('.next');
+            const indicators = carousel.querySelector('.carousel-indicators');
+            let currentIndex = 0;
+            
+            // Create indicators
+            slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('indicator');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                indicators.appendChild(dot);
+            });
+            
+            // Navigation
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel();
+            });
+            
+            function updateCarousel() {
+                container.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update indicators
+                document.querySelectorAll('.indicator').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+            
+            // Auto-rotate
+            let autoSlide = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+            }, 5000);
+            
+            // Pause on hover
+            carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
+            carousel.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateCarousel();
+                }, 5000);
+            });
+        });
+    </script>
+    
+    <canvas id="particle-bg"></canvas>
+
+    <script>
+    // Initialize canvas
+    const canvas = document.getElementById('particle-bg');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Particle settings
+    const particles = [];
+    const particleCount = window.innerWidth < 768 ? 100 : 200;
+    const colors = ['#00ffff', '#ff00ff', '#ffffff', '#00ff88'];
+
+    // Create particles
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 2 - 1;
+            this.speedY = Math.random() * 2 - 1;
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.alpha = Math.random() * 0.5 + 0.1;
+            this.size = window.innerWidth < 768 ? 
+            Math.random() * 2 + 0.5 : 
+            Math.random() * 3 + 1;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            
+            // Bounce off edges
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            
+            // Pulsing effect
+            this.size = Math.abs(Math.sin(Date.now() * 0.001)) * 2 + 1;
+        }
+
+        draw() {
+            ctx.save();
+            ctx.globalAlpha = this.alpha;
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Add glow
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = this.color;
+            ctx.restore();
+        }
+    }
+
+    // Initialize particles
+    function init() {
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    // Animation loop
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Connect particles
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+            
+            // Draw connecting lines
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance/150})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+        
+        requestAnimationFrame(animate);
+    }
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+
+    // Start animation
+    init();
+    animate();
+    </script>
+
+    <script>
+          document.querySelectorAll('.edu-item').forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('expanded');
+        });
+    });
+    </script>
 </body>
 </html>
