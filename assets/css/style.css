@@ -312,25 +312,32 @@ a {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    gap: 1rem;
+    gap: 0.9rem;
     margin-top: 1.5rem;
 }
 
+.skills-section {
+    padding: 0.2rem; /* Prevent cards from touching screen edges */
+}
+
+
 .skill-card {
     background: rgba(30, 30, 30, 0.7);
-    border-radius: 10px;
-    padding: 1.2rem 0.5rem;
+    border-radius: 8px;
+    padding: 0.8rem 0.4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: all 0.3s;
     border: 1px solid rgba(0, 255, 255, 0.1);
-    height: 100%; /* Added for equal height */
+    height: 100%;
+    font-size: 0.9rem;
+    max-width: 200px;
 }
 
 .skill-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--primary);
     margin-bottom: 0.8rem; /* Space between icon and text */
     transition: all 0.3s;
@@ -338,14 +345,14 @@ a {
 
 .skill-card span {
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: block; /* Ensures text stays below icon */
     word-break: break-word; /* Prevents text overflow */
 }
 
 /* Hover Effects */
 .skill-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px);
     border-color: var(--primary);
     box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
 }
