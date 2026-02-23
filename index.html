@@ -1,659 +1,399 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Rocky John M. Bantolo - Software Developer Portfolio"
+    />
+    <title>Rocky Bantolo | Software Developer</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">Rocky John M. Bantolo</h1>
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Rocky John Bantolo | Software Developer</title>
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    </head>
+    <section class="hero fade-in">
+      <div class="container">
+        <h2>Software Developer</h2>
+        <p>
+          3+ years building and maintaining business-critical desktop systems
+          and REST APIs using PHP, and MySQL. Focused on system stability, data
+          integrity, and long-term maintainability.
+        </p>
+      </div>
+    </section>
 
-    <body>
-        <!-- Animated Header -->
-        <header class="header">
-            <div class="header-content">
+    <section id="about" class="section fade-in">
+      <div class="container narrow">
+        <h3>About</h3>
+        <p>
+          Software Developer specializing in C# (WinForms), ASP.NET Core, PHP
+          APIs, and MySQL database design. Experienced in refactoring legacy
+          systems, improving database structures, and stabilizing production
+          applications. Strong focus on clean architecture, structured backend
+          design, and reducing operational risk through proper validation and
+          automation.
+        </p>
+      </div>
+    </section>
 
-                <div class="profile-pic-container">
-                    <img src="assets/images/Profile-2.jpg" alt="Rocky John Bantolo" class="profile-pic">
-                    <div class="glow-effect"></div>
-                </div>
+    <section id="skills" class="section alt fade-in">
+      <div class="container narrow">
+        <h3>Skills & Technologies</h3>
+        <ul class="grid-list">
+          <li>
+            <strong>Languages:</strong> C#, PHP, SQL, JavaScript, HTML/CSS
+          </li>
+          <li><strong>Frameworks:</strong> .NET (WinForms, ASP.NET Core)</li>
+          <li>
+            <strong>Backend Architecture:</strong> REST APIs, Layered
+            Architecture, JWT Authentication
+          </li>
+          <li>
+            <strong>Database:</strong> MySQL (SP, Triggers, Views, Events)
+          </li>
+          <li>
+            <strong>Tools & Cloud:</strong> AWS, Git, GitHub, Postman, Swagger
+          </li>
+        </ul>
+      </div>
+    </section>
 
-                <h1 class="glow-text">Rocky John M. Bantolo</h1>
-
-                <div class="typewriter">
-                    <span id="dynamic-text"></span>
-                    <span class="cursor">|</span>
-                </div>
-                
-                <div class="social-links">
-                    <a href="https://github.com/rockzbantolo" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/rocky-john-bantolo-19952930a" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.facebook.com/Rocky.Bantolo" target="_blank"><i class="fab fa-facebook"></i></a>
-                </div>
-                
-                <nav class="navigation-card">
-                    <a href="#about" class="nav-button"><span>About</span></a>
-                    <a href="#project" class="nav-button"><span>Projects</span></a>
-                    <a href="#exp" class="nav-button"><span>Experience</span></a>
-                    <a href="#educ" class="nav-button"><span>Education</span></a>
-                    <a href="#contact" class="nav-button"><span>Contact</span></a>
-                </nav>
-
-                <!-- Navigation Button-->
-
+    <section id="projects" class="section fade-in">
+      <div class="container">
+        <h3>Projects</h3>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a href="assets/images/em-s.jpg" target="_blank" rel="noopener">
+                <img
+                  src="assets/images/em-s.jpg"
+                  alt="Automatic Email Sender Screenshot"
+                  class="project-img"
+                />
+              </a>
             </div>
-        </header>
-
-        <!-- Main Content - Vertical Stack -->
-        <main class="main-stack">
-
-            <!-- About Section -->
-            <section class="card about-section">
-                <section id="about">
-                    <h2 class="section-header">
-                        <i class="fas fa-user"></i>About Me
-                    </h2>
-
-                    <p>I'm a software developer with experience building desktop application using C# and WinForms. 
-                        My expertise includes working with MySQL databases, building REST APIs, and managing backend systems. 
-                        crafting both user-friendly interfaces, and collaborating with teams to create efficient and resourceful solutions.</p>
-                    <br>
-                </section>
-                <div class="skills-section">
-                    <h3><i class="fas fa-code"></i> Tech Stack</h3>
-                    <div class="skills-grid">
-                            <div class="skill-card">
-                                <i class="fab fa-microsoft skill-icon"></i>
-                                <span>C#</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fas fa-terminal skill-icon"></i>
-                                <span>VB.Net</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fab fa-html5 skill-icon"></i>
-                                <span>HTML/CSS</span>
-                            </div>
-                             <div class="skill-card">
-                                <i class="fab fa-js skill-icon"></i>
-                                <span>JavaScript</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fab fa-php skill-icon"></i>
-                                <span>PHP</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fab fa-microsoft skill-icon"></i>
-                                <span>.NET</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fas fa-window-maximize skill-icon"></i>
-                                <span>Winforms</span>
-                            </div>
-                            <div class="skill-card">
-                                <i class="fas fa-database skill-icon"></i>
-                                <span>MySQL</span>
-                            </div>
-                        <!-- Add more skills -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Carousel -->
-            <section class="card projects-section">
-                <section id="project">
-                    <h2 class="section-header">
-                        <i class="fas fa-code"></i>My Recent Projects
-                    </h2>
-                </section>
-  
-                <div class="projects-carousel">
-                    <div class="carousel-container">
-                        
-                        <!-- Project Slides -->
-                        <div class="carousel-slide active">
-                            <div class="project-image">
-                                <img src="assets/images/SMS/Sms-Services.jpg" alt="Service Management System">
-                            </div>
-                            <div class="project-info">
-                                <h3>Service Management System</h3>
-                                <p>A Windows-based Service Management System built with C# and WinForms.
-                                    It tracks services, manages inventory, generates reports,
-                                    provides a live dashboard, and includes secure user access with encryption
-                                </p>
-                                <!-- <a href="#" class="project-link">View Details</a> -->
-                            </div>
-                        </div>
-
-                        <div class="carousel-slide">
-                            <div class="project-image">
-                                <img src="assets/images/SMNT/Smnt-Dashboard.jpg" alt="Dashboard">
-                            </div>
-                            <div class="project-info">
-                                <h3>Service Monitoring System</h3>
-                                <p>Designed to streamline operational
-                                    oversight by enabling users to track ongoing services and manage
-                                    inventory.
-                                    users can generate reports and export them as
-                                    Excel files—making it easy to analyze data, share updates,
-                                    and support informed decision-making</p>
-
-                            </div>
-                        </div>
-
-                        <div class="carousel-slide">
-                            <div class="project-image">
-                                <img src="assets/images/MIS/mis-billing.jpg" alt="Billing">
-                            </div>
-                            <div class="project-info">
-                                <h3>Management Information System</h3>
-                                <p>Building and optimizing a full MIS with modules for
-                                    billing, helpdesk, and inventory. Improved API and database
-                                    performance for better system efficiency</p>
-
-                            </div>
-                        </div>
-
-                        <div class="carousel-slide">
-                            <div class="project-image">
-                                <img src="assets/images/RGen/Rgen-Main.jpg" alt="Dashboard">
-                            </div>
-                            <div class="project-info">
-                                <h3>Report Builder</h3>
-                                <p>An automated reporting engine that transforms
-                                    raw Excel data into clean, customizable reports through
-                                    parsing and data structuring</p>
-
-                            </div>
-                        </div>
-
-                        <div class="carousel-slide">
-                            <div class="project-image">
-                                <img src="assets/images/SRM/Registration.jpg" alt="Registration">
-                            </div>
-                            <div class="project-info">
-                                <h3>Student Management System</h3>
-                                <p>Developed using VB.Net for thesis</p>
-
-                            </div>
-                        </div>
-
-                        <!-- Add more slides -->
-                    </div>
-
-                    <!-- Carousel Controls -->
-                    <button class="carousel-arrow prev"><i class="fas fa-chevron-left"></i></button>
-                    <button class="carousel-arrow next"><i class="fas fa-chevron-right"></i></button>
-
-                    <!-- Indicators -->
-                    <div class="carousel-indicators"></div>
-                </div>
-            </section>
-
-            <!-- Experience experience -->
-            <section class="card experience-section">
-                 <section id="exp">
-                    <h2 class="section-header">
-                        <i class="fas fa-briefcase"></i>Experiences
-                    </h2>
-                </section>
-                <div class="experience-container">
-                    <!-- Left Column -->
-                    <div class="experience-column left">
-
-                        <div class="experience-item">
-                            <div class="experience-content">
-                                <h3>Software Developer</h3>
-                                <p class="experience-meta">
-                                    <span><i class="fas fa-building"></i>Castles Int’l Technology & Services PHL, Inc</span>
-                                    <span class="divider">|</span>
-                                    <span class="date">
-                                        <i class="fas fa-calendar-alt"></i> 2022 - Present
-                                    </span>
-                                </p>
-                                <ul class="experience-description">
-                                    <li>Redesigned and optimized the Management Information System (MIS) to improve performance and make future updates easier</li>
-                                    <li>Developed a billing system and helpdesk system to replace manual workflows, reducing manual works and speeding up processing.</li>
-                                    <li>Analyzed existing company workflows to identify bottlenecks and opportunities for automation, creating clear process maps for system development.</li>
-                                    <li>Built both desktop (C# WinForms, MySQL) and web-based applications (HTML, CSS, JavaScript, PHP) to support internal operations and client-facing tools.</li>
-                                    <li>Created PHP REST APIs to connect with third-party services and backend processes.</li>
-                                    <li>Improved database performance through stored procedures, triggers, functions, and scheduled events.</li>
-                                    <li>Managed Git and AWS deployments, version control, and remote configurations to keep systems running with minimal downtime.</li>
-                                    <li>Prepared Excel and Crystal Reports used by management for operational decisions.</li>
-                                    <li>Trained staff on using new systems to ensure smooth adoption.</li>
-                                    <!-- Add all other points -->
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="experience-content">
-                                <h3>Key Entry Operator</h3>
-                                <p class="experience-meta">
-                                    <span class=""><i class="fas fa-building"></i>Freight Process Outsourcing Solutions
-                                        Inc.</span>
-                                    <span class="divider">|</span>
-                                    <span class="date">
-                                        <i class="fas fa-calendar-alt"></i> 2021 - 2022
-                                    </span>
-                                </p>
-                                <ul class="experience-description">
-                                    <li>Consistently met and exceeded daily data processing targets while maintaining strict quality and accuracy standards.</li>
-                                    <li>Applied advanced Excel formulas and verification procedures to validate and reconcile large datasets, reducing processing errors.</li>
-                                    <li>Maintained records of data sources, applied logic, and generated detailed audit trails for reference and compliance.</li>
-                                    <li>Processed and analyzed operational data in Excel, producing reports and insights that supported management decision-making.</li>
-                                    <!-- Add all other points -->
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Add odd-numbered items here (1,3,5...) -->
-                    </div>
-
-                    <!-- experience Center Line -->
-                    <div class="experience-line"></div>
-
-                    <!-- Right Column -->
-                    <div class="experience-column right">
-
-                        <div class="experience-item">
-                            <div class="experience-content">
-                                <h3>Data Encoder</h3>
-                                <p class="experience-meta">
-                                    <span class=""><i class="fas fa-building"></i>Promerch Unlimited Inc.</span>
-                                    <span class="divider">|</span>
-                                    <span class="date">
-                                        <i class="fas fa-calendar-alt"></i> 2015 - 2016
-                                    </span>
-                                </p>
-
-                                <ul class="experience-description">
-                                    <li>Compiled and analyzed inventory data, producing daily, weekly, and monthly reports using PowerPoint with actionable insights to improve stock control.</li>
-                                    <li>Created detailed analysis using Excel that supported strategic purchasing and inventory management decisions.</li>
-                                    <li>Provided technical support for hardware, software, and network issues, ensuring minimal downtime in daily operations.</li>
-                                    <li>Collaborated with coordinators and merchandisers to resolve inventory discrepancies and streamline stock management processes.</li>
-                                </ul>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="experience-content">
-                                <h3>IT Staff (Intern)</h3>
-                                <p class="experience-meta">
-                                    <span class=""><i class="fas fa-building"></i>AMA Computer Learning Center -
-                                        Mandaluyong</span>
-                                    <span class="divider">|</span>
-                                    <span class="date">
-                                        <i class="fas fa-calendar-alt"></i> 2015 - 2016
-                                    </span>
-                                </p>
-
-                                <ul class="experience-description">
-                                    <li>Hardware and Software Troubleshooting</li>
-                                    <li>Network Troubleshooting</li>
-                                    <li>Provide Technical support to students</li>
-                                    <li>Monitoring Inventory</li>
-                                </ul>
-
-                                </ul>
-                            </div>
-                        </div>
-
-
-                        <div class="experience-item">
-                            <div class="experience-content">
-                                <h3>Stock Man</h3>
-                                <p class="experience-meta">
-                                    <span class=""><i class="fas fa-building"></i>Jolibee Foods Corp.</span>
-                                    <span class="divider">|</span>
-                                    <span class="date">
-                                        <i class="fas fa-calendar-alt"></i> 2010 - 2011
-                                    </span>
-                                </p>
-
-                                <ul class="experience-description">
-                                    <li>Providing stocks reports</li>
-                                    <li>Daily Monitoring of Inventory</li>
-                                    <li>Receiving of deliveries</li>
-                                </ul>
-
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Add even-numbered items here (2,4,6...) -->
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Education experience -->
-            <section class="education-section">
-                 <section id="educ">
-                    <h2 class="section-header">
-                        <i class="fas fa-graduation-cap"></i>Education
-                    </h2>
-                 </section>
-
-                <div class="education-experience">
-                    <!-- Degree 1 -->
-                    <div class="edu-item">
-                        <div class="edu-header">
-                            <h3>Bachelor of Science in Information Technology</h3>
-                            <div class="edu-meta">
-                                <span class="institution">
-                                    <i class="fas fa-university"></i> Jose Rizal University
-                                </span>
-                                <span class="date">
-                                    <i class="fas fa-calendar-alt"></i> 2023
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="edu-details">
-                            <ul>
-                                <li><i class="fas fa-star"></i>Thesis: Mobile and Web weather crops Prediction App</li>
-                            </ul>
-
-                            <div class="courses">
-                                <span class="course-pill">Application Development</span>
-                                <span class="course-pill">Web Development</span>
-                                <span class="course-pill">Machine Learning</span>
-                                <span class="course-pill">Data Structures</span>
-                                <span class="course-pill">Multi-Media</span>
-                                <span class="course-pill">Neural Networks</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Degree 2 -->
-                    <div class="edu-item">
-                        <div class="edu-header">
-                            <h3>Software Development</h3>
-                            <div class="edu-meta">
-                                <span class="institution">
-                                    <i class="fas fa-university"></i> Ama Computer Learning Center
-                                </span>
-                                <span class="date">
-                                    <i class="fas fa-calendar-alt"></i>2012
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="edu-details">
-                            <ul>
-                                <li><i class="fas fa-star"></i>Honors: Software Developer of the Year</li>
-                                <li><i class="fas fa-star"></i>Honors: Best Thesis of the Year</li>
-                                <li><i class="fas fa-star"></i>Thesis: Student Management System</li>
-                                <li><i class="fas fa-star"></i>Certificate: Programming NC IV </li>
-                            </ul>
-
-                            <div class="courses">
-                                <span class="course-pill">Programming</span>
-                                <span class="course-pill">Algorithms </span>
-                                <span class="course-pill">System Architechtures</span>
-                                <span class="course-pill">Database Architechtures</span>
-                                <span class="course-pill">System UI/UX </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- Contact Footer -->
-        <footer class="footer">
-            <section id="contact">
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> rocky.bantolo@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +63 961-408-8337</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Philippines</p>
-                </div>
-                <div class="copyright">
-                    <p>&copy; 2025 Rocky John Bantolo. All rights reserved.</p>
-                </div>
-            </section>
-        </footer>
-
-        <!-- Type Writter Effect -->
-        <script>
-            // Typewriter Effect
-            const roles = ["Hi Welcome to My Page",
-                           "Im a Software Developer"];
-            let roleIndex = 0;
-            let charIndex = 0;
-            let isDeleting = false;
-
-            function typeEffect() {
-                const currentText = roles[roleIndex];
-                const dynamicText = document.getElementById('dynamic-text');
-
-                if (isDeleting) {
-                    dynamicText.textContent = currentText.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    dynamicText.textContent = currentText.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-
-                if (!isDeleting && charIndex === currentText.length) {
-                    isDeleting = true;
-                    setTimeout(typeEffect, 2000);
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    roleIndex = (roleIndex + 1) % roles.length;
-                    setTimeout(typeEffect, 500);
-                } else {
-                    setTimeout(typeEffect, isDeleting ? 50 : 100);
-                }
-            }
-
-            // Carousel Functionality
-            document.addEventListener('DOMContentLoaded', () => {
-                typeEffect();
-
-                const carousel = document.querySelector('.projects-carousel');
-                const container = carousel.querySelector('.carousel-container');
-                const slides = carousel.querySelectorAll('.carousel-slide');
-                const prevBtn = carousel.querySelector('.prev');
-                const nextBtn = carousel.querySelector('.next');
-                const indicators = carousel.querySelector('.carousel-indicators');
-                let currentIndex = 0;
-
-                // Create indicators
-                slides.forEach((_, index) => {
-                    const dot = document.createElement('span');
-                    dot.classList.add('indicator');
-                    if (index === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => goToSlide(index));
-                    indicators.appendChild(dot);
-                });
-
-                // Navigation
-                nextBtn.addEventListener('click', () => {
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    updateCarousel();
-                });
-
-                prevBtn.addEventListener('click', () => {
-                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                    updateCarousel();
-                });
-
-                function updateCarousel() {
-                    container.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                    // Update indicators
-                    document.querySelectorAll('.indicator').forEach((dot, index) => {
-                        dot.classList.toggle('active', index === currentIndex);
-                    });
-                }
-
-                function goToSlide(index) {
-                    currentIndex = index;
-                    updateCarousel();
-                }
-
-                // Auto-rotate
-                let autoSlide = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    updateCarousel();
-                }, 5000);
-
-                // Pause on hover
-                carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
-                carousel.addEventListener('mouseleave', () => {
-                    autoSlide = setInterval(() => {
-                        currentIndex = (currentIndex + 1) % slides.length;
-                        updateCarousel();
-                    }, 5000);
-                });
-            });
-        </script>
-
-        <!-- Background Effects -->
-        <canvas id="particle-bg"></canvas>
-
-        <script>
-            // Initialize canvas
-            const canvas = document.getElementById('particle-bg');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            // Particle settings
-            const particles = [];
-            const particleCount = window.innerWidth < 768 ? 100 : 200;
-            const colors = ['#00ffff', '#ff00ff', '#ffffff', '#00ff88'];
-
-            // Create particles
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 3 + 1;
-                    this.speedX = Math.random() * 2 - 1;
-                    this.speedY = Math.random() * 2 - 1;
-                    this.color = colors[Math.floor(Math.random() * colors.length)];
-                    this.alpha = Math.random() * 0.5 + 0.1;
-                    this.size = window.innerWidth < 768 ?
-                        Math.random() * 2 + 0.5 :
-                        Math.random() * 3 + 1;
-                }
-
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-
-                    // Bounce off edges
-                    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-
-                    // Pulsing effect
-                    this.size = Math.abs(Math.sin(Date.now() * 0.001)) * 2 + 1;
-                }
-
-                draw() {
-                    ctx.save();
-                    ctx.globalAlpha = this.alpha;
-                    ctx.fillStyle = this.color;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-
-                    // Add glow
-                    ctx.shadowBlur = 10;
-                    ctx.shadowColor = this.color;
-                    ctx.restore();
-                }
-            }
-
-            // Initialize particles
-            function init() {
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            // Animation loop
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                // Connect particles
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-
-                    // Draw connecting lines
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < 150) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(0, 255, 255, ${1 - distance / 150})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-
-                requestAnimationFrame(animate);
-            }
-
-            // Handle resize
-            window.addEventListener('resize', () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            });
-
-            // Start animation
-            init();
-            animate();
-        </script>
-
-        <!-- Hover Effect -->
-        <script>
-            document.querySelectorAll('.edu-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    item.classList.toggle('expanded');
-                });
-            });
-        </script>
-
-        <button id="backToTopBtn" title="Go to top">
-            <i class="fas fa-arrow-up"></i> Top
-        </button>
-
-        <script>
-            const backToTopBtn = document.getElementById('backToTopBtn');
-
-            // Show the button when user scrolls down
-            window.onscroll = () => {
-                if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                    backToTopBtn.style.display = "block";
-                } else {
-                    backToTopBtn.style.display = "none";
-                }
-            };
-
-            // Scroll to top smoothly when button is clicked
-            backToTopBtn.onclick = () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            };
-        </script>
-
-
-    </body>
-
+            <h4>Automatic Email Sender App</h4>
+            <p class="description">
+              Built a standalone email automation application that sends daily,
+              weekly, and monthly emails, including billing reminders,
+              Statements of Account (SOA), and other report notifications.
+              Supports custom timing, CC/BCC, and send logs. Reduces manual
+              effort and ensures timely delivery.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a href="assets/images/sm-s.jpg" target="_blank" rel="noopener">
+                <img
+                  src="assets/images/sm-s.jpg"
+                  alt="Service Management Screenshot"
+                  class="project-img"
+                />
+              </a>
+            </div>
+            <h4>Service Management System</h4>
+            <p class="description">
+              Built complete service management system using C# WinForms +
+              MySQL. Implemented full tracking of active services, status
+              transitions and merchants, role-based access control (RBAC).
+              Integrated Crystal Reports and EPPlus for operational reporting
+              and Excel exports. Enforced validation across service lifecycle to
+              prevent invalid states.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a href="assets/images/bm-s.jpg" target="_blank" rel="noopener">
+                <img
+                  src="assets/images/bm-s.jpg"
+                  alt="Billing Management Screenshot"
+                  class="project-img"
+                />
+              </a>
+            </div>
+            <h4>Billing & Invoice Automation</h4>
+            <p class="description">
+              Built billing automation module that generates structured billing
+              reports and invoices on a daily, weekly, or monthly basis. Exports
+              are created in Excel using (EPPlus) for accounting review,
+              improving accuracy and reducing manual effort in billing.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a href="assets/images/hd-m.jpg" target="_blank" rel="noopener">
+                <img
+                  src="assets/images/hd-m.jpg"
+                  alt="Helpdesk Management System Screenshot"
+                  class="project-img"
+                />
+              </a>
+            </div>
+            <h4>Helpdesk Ticketing</h4>
+            <p class="description">
+              Implemented helpdesk ticketing system for service requests and
+              internal issues. Structured database for consistent ticket states
+              and lifecycle. Added validation rules preventing data
+              inconsistencies. Replaced manual tracking sheets with real-time
+              visibility.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a href="assets/images/rb-s.jpg" target="_blank" rel="noopener">
+                <img
+                  src="assets/images/rb-s.jpg"
+                  alt="Report Builder Screenshot"
+                  class="project-img"
+                />
+              </a>
+            </div>
+            <h4>Report Builder App</h4>
+            <p class="description">
+              Built a dynamic report builder. Accepts structured Excel template
+              uploads and user-provided data. Parses templates, maps data fields
+              dynamically to layout. Generates formatted output reports
+              (PDF/Excel) with correct Format(Styling) and positioning.
+              Eliminated manual report reconfiguration for each new variant.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a href="assets/images/inv-m.jpg" target="_blank" rel="noopener">
+                <img
+                  src="assets/images/inv-m.jpg"
+                  alt="Inventory Management System Screenshot"
+                  class="project-img"
+                />
+              </a>
+            </div>
+            <h4>Inventory Tracking</h4>
+            <p class="description">
+              Enhanced existing inventory system. Added real-time stock level
+              monitoring, complete logging of every item movement (in, out,
+              transfers), full transaction history, and detailed reporting on
+              stock changes and item flow. Enforced database constraints and
+              transaction safety to prevent negative quantities and data
+              inconsistencies.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a href="assets/images/cw-s.jpg" target="_blank" rel="noopener">
+                <img
+                  src="assets/images/cw-s.jpg"
+                  alt="Crops and Weather Prediction System Screenshot"
+                  class="project-img"
+                />
+              </a>
+            </div>
+            <h4>Crops and Weather Prediction System (Thesis)</h4>
+            <p class="description">
+              Built a cross-platform web and mobile system for the Department of
+              Agriculture, Baguio City to monitor crop data and weather signals.
+              Integrated a Python-based neural network model for crop yield and
+              weather prediction via backend services. Designed the data flow
+              between prediction model and application layer to provide
+              real-time risk assessment and reporting for farmers.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a href="assets/images/sr-m.jpg" target="_blank" rel="noopener">
+                <img
+                  src="assets/images/sr-m.jpg"
+                  alt="SR Management System Screenshot"
+                  class="project-img"
+                />
+              </a>
+            </div>
+            <h4>SR Management System (Thesis)</h4>
+            <p class="description">
+              Built a student management system for (United Methodist Church)
+              using VB.NET WinForms and MySQL. Implemented enrollment workflows,
+              fee tracking, subject assignment, grading modules, and role-based
+              authentication. Delivered a complete end-to-end management
+              solution.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a
+                href="assets/images/rest-api.png"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="assets/images/rest-api.png"
+                  alt="Crops and Weather Prediction System Screenshot"
+                  class="project-img"
+                />
+              </a>
+            </div>
+            <h4>Refactored PHP REST API</h4>
+            <p class="description">
+              Refactored (PHP) API to clean controller–service–repository
+              structure. Separated business logic from routing. Standardized
+              response formats. Removed tight coupling between modules.
+              Significantly improved maintainability and extension speed.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img-wrapper">
+              <a
+                href="assets/images/rest-api.png"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src="assets/images/rest-api.png"
+                  alt="Crops and Weather Prediction System Screenshot"
+                  class="project-img"
+                />
+              </a>
+            </div>
+            <h4>ASP.Net REST API</h4>
+            <p class="description">
+              Built modern RESTful API in ASP.NET Core featuring JWT
+              authentication, structured validation, consistent response
+              envelopes, and clean layered architecture. Endpoints built to
+              integrate with both desktop and web frontends. Applied current
+              .NET standards and best practices.
+            </p>
+            <button class="show-more">Show more</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section alt fade-in">
+      <div class="container narrow">
+        <h3>Experience</h3>
+
+        <!-- Primary Engineering Experience -->
+        <div class="timeline-item">
+          <h4>Software Developer</h4>
+          <span
+            >Castles Int’l Technology & Services PHL, Inc (2022 – Present)</span
+          >
+          <p>
+            Developed and Maintained multiple modules within existing C#
+            WinForms + MySQL MIS application. Refactored legacy PHP REST API to
+            clean layered architecture (controller–service–repository). Improved
+            module reliability and reduced runtime issues in production.
+          </p>
+          <ul class="timeline-list">
+            <li>
+              Designed and implemented Helpdesk and Billing modules, replacing
+              manual and Excel-based processes; reduced processing time and
+              human error.
+            </li>
+            <li>
+              Built automated email application for billing statements,
+              reminders, SOA, with (custom timing, CC/BCC, send logs) and
+              operational reports; removed manual sending and improved
+              collection tracking.
+            </li>
+            <li>
+              Improved MySQL database reliability: cleaned inconsistent data,
+              introduced stored procedures, triggers, functions, and events to
+              centralize rules and prevent integrity violations.
+            </li>
+            <li>
+              Refactored PHP REST API: separated business logic, standardized
+              responses, improved maintainability.
+            </li>
+            <li>
+              Managed Git workflows and AWS deployments to improve release
+              stability.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Earlier Operational Experience -->
+        <div class="timeline-item">
+          <h4>Earlier Operational Experience</h4>
+          <span>Previous roles summary</span>
+          <ul class="timeline-list">
+            <li>
+              <strong>Key Entry Operator:</strong> Processed 100+ shipment
+              records daily with strict validation and operational rules.
+            </li>
+            <li>
+              <strong>Data Encoder:</strong> Developed Excel reporting
+              dashboards for inventory monitoring and forecasting. Provided
+              technical support to maintain operational continuity.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section fade-in">
+      <div class="container narrow">
+        <h3>Contact</h3>
+        <p>
+          Email:
+          <a href="mailto:rocky.bantolo@gmail.com">rocky.bantolo@gmail.com</a>
+        </p>
+        <p>
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/rocky-bantolo-19952930a"
+            target="_blank"
+            rel="noopener"
+            >linkedin.com/in/rocky-bantolo</a
+          >
+        </p>
+        <p>
+          Portfolio:
+          <a
+            href="https://rockzbantolo.github.io"
+            target="_blank"
+            rel="noopener"
+            >rockzbantolo.github.io</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Rocky Bantolo</p>
+      </div>
+    </footer>
+    <button id="back-to-top" aria-label="Back to top">↑</button>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>
