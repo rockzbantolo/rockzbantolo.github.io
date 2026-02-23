@@ -3,15 +3,12 @@
 (function () {
   // Show More / Show Less
   "use strict";
-
-  const COLLAPSED_LINES = 3; // <-- set the number of lines you want collapsed
-
+  const COLLAPSED_LINES = 3;
   document.querySelectorAll(".project-card .show-more").forEach((button) => {
     const card = button.closest(".project-card");
     const description = card.querySelector(".description");
     if (!card || !description) return;
 
-    // Initial collapsed state
     collapse(description, COLLAPSED_LINES);
 
     button.addEventListener("click", () => {
@@ -34,13 +31,13 @@
     const targetHeight = element.scrollHeight;
 
     element.style.height = `${startHeight}px`;
-    element.offsetHeight; // force reflow
+    element.offsetHeight; 
     element.style.height = `${targetHeight}px`;
 
     element.addEventListener(
       "transitionend",
       () => {
-        element.style.height = "auto"; // let it fully expand naturally
+        element.style.height = "auto";
       },
       { once: true },
     );
@@ -54,7 +51,7 @@
     const startHeight = element.scrollHeight;
 
     element.style.height = `${startHeight}px`;
-    element.offsetHeight; // force reflow
+    element.offsetHeight; 
     element.style.height = `${targetHeight}px`;
   }
 
@@ -77,7 +74,6 @@
           if (entry.isIntersecting) {
             el.classList.add("visible");
           } else {
-            // remove class when out of view to allow re-animation
             el.classList.remove("visible");
           }
         }
@@ -105,7 +101,6 @@
 
   function init() {
     setFooterYear();
-    // Delay fade-in init until page fully loaded
     window.addEventListener("load", initFadeInObserver);
     initBackToTop();
   }
