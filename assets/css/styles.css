@@ -324,19 +324,29 @@ a:hover {
     z-index: 100;
 }
 
-.resume-download a {
-  display: inline-block;
-  padding: 0.75em 1.5em;
-  background: #333333;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  margin-top: 10px;
+.resume-download {
+  margin-top: 1rem;             /* distance from list */
+  text-align: left;
 }
 
-.resume-download a:hover {
-  background: #686868;
+.resume-download a {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #eee;
+  background: transparent;
+  border: 1px solid #666;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.resume-download a:hover,
+.resume-download a:focus {
+  color: #fff;
+  border-color: #aaa;
+  background: rgba(255,255,255,0.04);
 }
 
 #back-to-top:hover {
