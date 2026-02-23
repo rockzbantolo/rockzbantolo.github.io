@@ -324,6 +324,21 @@ a:hover {
     z-index: 100;
 }
 
+.resume-download a {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  background: #333333;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.resume-download a:hover {
+  background: #686868;
+}
+
 #back-to-top:hover {
     background: rgba(59, 130, 246, 0.18);
     transform: translateY(-2px);
