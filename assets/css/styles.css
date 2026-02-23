@@ -196,14 +196,15 @@ body {
     line-height: 1.6;
 }
 
-/* Image */
+/* Image + Modal Trigger */
 .project-img-wrapper {
     overflow: hidden;
     margin-bottom: 1.2rem;
     border-radius: calc(var(--radius) - 4px);
     border: 1px solid var(--border);
-    aspect-ratio: 5 / 3; /* image ratio*/
+    aspect-ratio: 5 / 3;
     width: 100%;
+    cursor: zoom-in;
 }
 
 .project-img-wrapper img {
@@ -219,6 +220,75 @@ body {
     .project-card:hover .project-img-wrapper img {
         transform: scale(1.1);
     }
+}
+
+/* Modal */
+.image-modal {
+    border: none;
+    padding: 2rem;
+    margin: auto;
+    background: var(--bg-alt);
+    width:  clamp(850px, 85vw, 1800px);
+    height: clamp(600px, 85vh, 1200px);
+    min-width:  850px;
+    min-height: 600px;
+    max-width:  96vw;
+    max-height: 96vh;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+.image-modal::backdrop {
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(12px);
+}
+
+.image-modal img {
+    max-width:  100%;
+    max-height: 100%;
+    width:      auto;
+    height:     auto;
+    object-fit: contain;
+    border-radius: calc(var(--radius) - 6px);
+}
+
+/* Close button inside modal */
+.modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(30,30,35,0.75);
+    color: #e4e4e7;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.16s ease;
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover,
+.modal-close:focus-visible {
+    background: rgba(59,130,246,0.4);
+    color: white;
+    transform: scale(1.1);
+}
+
+.modal-close:active {
+    transform: scale(0.95);
 }
 
 /* Description clamp */
@@ -238,6 +308,7 @@ body {
     font-weight: 500;
     text-align: left;
 }
+
 .project-card .show-more:hover {
     opacity: 0.8;
 }
@@ -324,37 +395,38 @@ a:hover {
     z-index: 100;
 }
 
-.resume-download {
-  margin-top: 1rem;             /* distance from list */
-  text-align: left;
-}
-
-.resume-download a {
-  display: inline-block;
-  padding: 0.75rem 1.8rem;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #eee;
-  background: transparent;
-  border: 1px solid #666;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.18s ease;
-}
-
-.resume-download a:hover,
-.resume-download a:focus {
-  color: #fff;
-  border-color: #aaa;
-  background: rgba(255,255,255,0.04);
-}
-
 #back-to-top:hover {
     background: rgba(59, 130, 246, 0.18);
     transform: translateY(-2px);
 }
 
-/* Fade-in (graceful even without JS) */
+/* Resume Download */
+.resume-download {
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.resume-download a {
+    display: inline-block;
+    padding: 0.75rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #eee;
+    background: transparent;
+    border: 1px solid #666;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.18s ease;
+}
+
+.resume-download a:hover,
+.resume-download a:focus {
+    color: #fff;
+    border-color: #aaa;
+    background: rgba(255,255,255,0.04);
+}
+
+/* Fade-in */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -364,6 +436,16 @@ a:hover {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Force dialog to be truly hidden when closed */
+dialog:not([open]) {
+  display: none !important;
+}
+
+/* Prevent stuck backdrop in edge cases */
+dialog[open]::backdrop {
+  pointer-events: auto;
 }
 
 /* Responsive */

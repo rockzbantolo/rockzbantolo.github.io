@@ -1,9 +1,11 @@
 "use strict";
 
 (function () {
+  // ─────────────────────────────────────────────────────────────
   // Show More / Show Less
-  "use strict";
+  // ─────────────────────────────────────────────────────────────
   const COLLAPSED_LINES = 3;
+
   document.querySelectorAll(".project-card .show-more").forEach((button) => {
     const card = button.closest(".project-card");
     const description = card.querySelector(".description");
@@ -13,7 +15,6 @@
 
     button.addEventListener("click", () => {
       const isExpanded = card.classList.contains("expanded");
-
       if (!isExpanded) {
         expand(description);
         card.classList.add("expanded");
@@ -29,11 +30,9 @@
   function expand(element) {
     const startHeight = element.offsetHeight;
     const targetHeight = element.scrollHeight;
-
     element.style.height = `${startHeight}px`;
-    element.offsetHeight; 
+    element.offsetHeight;
     element.style.height = `${targetHeight}px`;
-
     element.addEventListener(
       "transitionend",
       () => {
@@ -47,63 +46,124 @@
     const computed = window.getComputedStyle(element);
     const lineHeight = parseFloat(computed.lineHeight);
     const targetHeight = lineHeight * lines;
-
     const startHeight = element.scrollHeight;
-
     element.style.height = `${startHeight}px`;
-    element.offsetHeight; 
+    element.offsetHeight;
     element.style.height = `${targetHeight}px`;
   }
 
-  // Footer year
-  function setFooterYear() {
-    const yearElement = document.getElementById("year");
-    if (!yearElement) return;
-    yearElement.textContent = new Date().getFullYear();
+  // ─────────────────────────────────────────────────────────────
+  // Image Modal
+  // ─────────────────────────────────────────────────────────────
+  function initImageModal() {
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-image");
+
+    if (!modal || !modalImg) {
+      console.error("[Modal] #image-modal or #modal-image missing");
+      return;
+    }
+
+    let isOpening = false;
+
+    // Open on thumbnail click
+    document.querySelectorAll(".project-img-wrapper img").forEach((img) => {
+      img.addEventListener("click", () => {
+        if (isOpening) return;
+        isOpening = true;
+
+        modalImg.src = img.currentSrc || img.src;
+        modalImg.alt = img.alt || "Enlarged project image";
+        modal.showModal();
+        modalImg.focus();
+
+        setTimeout(() => {
+          isOpening = false;
+        }, 300);
+      });
+    });
+
+    // Close on backdrop click
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.close();
+      }
+    });
+
+    // Close on button click
+    const closeBtn = modal.querySelector(".modal-close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        modal.close();
+      });
+    }
+
+    // Cleanup after close
+    modal.addEventListener("close", () => {
+      modalImg.src = ""; // break image reference
+      document.body.style.overflow = ""; // restore scroll
+      isOpening = false;
+    });
   }
 
+  // ─────────────────────────────────────────────────────────────
+  // Footer year
+  // ─────────────────────────────────────────────────────────────
+  function setFooterYear() {
+    const el = document.getElementById("year");
+    if (el) el.textContent = new Date().getFullYear();
+  }
+
+  // ─────────────────────────────────────────────────────────────
   // Fade-in observer
+  // ─────────────────────────────────────────────────────────────
   function initFadeInObserver() {
     const elements = document.querySelectorAll(".fade-in");
     if (!elements.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          const el = entry.target;
-          if (entry.isIntersecting) {
-            el.classList.add("visible");
-          } else {
-            el.classList.remove("visible");
-          }
-        }
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("visible", entry.isIntersecting);
+        });
       },
       { threshold: 0.15 },
     );
-    for (const el of elements) {
-      observer.observe(el);
-    }
+
+    elements.forEach((el) => observer.observe(el));
   }
 
+  // ─────────────────────────────────────────────────────────────
   // Back to top
+  // ─────────────────────────────────────────────────────────────
   function initBackToTop() {
-    const button = document.getElementById("back-to-top");
-    if (!button) return;
+    const btn = document.getElementById("back-to-top");
+    if (!btn) return;
 
     window.addEventListener("scroll", () => {
-      button.style.display = window.scrollY > 300 ? "flex" : "none";
+      btn.style.display = window.scrollY > 300 ? "flex" : "none";
     });
 
-    button.addEventListener("click", () => {
+    btn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
+  // ─────────────────────────────────────────────────────────────
+  // Main init
+  // ─────────────────────────────────────────────────────────────
   function init() {
     setFooterYear();
-    window.addEventListener("load", initFadeInObserver);
+    initFadeInObserver();
     initBackToTop();
+    initImageModal();
   }
 
-  init();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
 })();
