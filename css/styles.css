@@ -35,7 +35,7 @@ code, kbd, pre {
         background: white !important;
         color: black !important;
     }
-    .no-print, nav, #progress-bar, #toast, .modal {
+    .no-print, nav, #progress-bar, #toast, .modal, #cmd-palette {
         display: none !important;
     }
 }
