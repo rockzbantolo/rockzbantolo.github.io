@@ -1,430 +1,1465 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Rocky John M. Bantolo - Software Developer Portfolio"
-    />
-    <title>Rocky Bantolo | Software Developer</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Rocky John M. Bantolo — C# / .NET Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#f0f7ff",
+                100: "#e0effe",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <h1 class="logo">Rocky John M. Bantolo</h1>
-        <nav class="nav">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
+  <body
+    class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 min-h-screen relative selection:bg-brand-500 selection:text-white"
+  >
+    <!-- Scroll Progress Indicator -->
+    <div
+      id="progress-bar"
+      class="fixed top-0 left-0 h-1 bg-brand-500 z-50 transition-all duration-150 w-0"
+    ></div>
 
-    <section class="hero fade-in">
-      <div class="container">
-        <h2>Software Developer</h2>
-        <p>
-          Developing Windows desktop business applications using C#, WinForms,
-          MySQL, and REST API integration.
-        </p>
-      </div>
-    </section>
+    <!-- Toast Notification -->
+    <div
+      id="toast"
+      class="fixed bottom-6 right-6 px-4 py-3 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-lg shadow-xl text-sm font-medium transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center space-x-2"
+    >
+      <svg
+        class="w-4 h-4 text-emerald-400 dark:text-emerald-600"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 13l4 4L19 7"
+        ></path>
+      </svg>
+      <span id="toast-message">Notification message</span>
+    </div>
 
-    <section id="about" class="section fade-in">
-      <div class="container narrow">
-        <h3>About</h3>
-        <p>
-          I'm an IT professional with over three years of experience developing
-          and maintaining business applications. My experience includes
-          developing new features, maintaining existing systems, optimizing
-          MySQL databases, integrating REST APIs, troubleshooting production
-          issues, and providing computer and network support. My primary
-          technologies are C#, .NET WinForms, MySQL, and REST APIs, with
-          additional experience in software testing, technical documentation,
-          and business process automation.
-        </p>
-      </div>
-    </section>
-
-    <section id="skills" class="section alt fade-in">
-      <div class="container narrow">
-        <h3>Skills & Technologies</h3>
-
-        <ul class="grid-list">
-          <li>
-            <strong>Languages:</strong>
-            C#, PHP, SQL, JavaScript, HTML/CSS
-          </li>
-
-          <li>
-            <strong>Frameworks & Backend:</strong>
-            .NET, WinForms, ASP.NET Core, Entity Framework Core, REST API, JSON
-          </li>
-
-          <li>
-            <strong>Development:</strong>
-            OOP, Dependency Injections, LINQ, Async/Await, MVC Architecture
-          </li>
-
-          <li>
-            <strong>Database:</strong>
-            MySQL, Database Design, Stored Procedures, Views, Triggers,
-            Scheduled Events, Indexing, Query Optimization
-          </li>
-
-          <li>
-            <strong>Engineering:</strong>
-            Software Testing, Debugging, Root Cause Analysis, Application
-            Troubleshooting, Requirements Gathering, Technical Documentation
-          </li>
-
-          <li>
-            <strong>Technical Support:</strong>
-            Computer Troubleshooting, Software Troubleshooting, Hardware &
-            Network Support
-          </li>
-
-          <li>
-            <strong>Tools:</strong>
-            Visual Studio, VS Code, Postman, Swagger, GitHub
-          </li>
-
-          <li>
-            <strong>Deployment:</strong>
-            AWS EC2
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="projects" class="section fade-in">
-      <div class="container">
-        <h3>Projects</h3>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/em-s.jpg"
-                alt="Automatic Email Sender Screenshot"
-                class="project-img"
-                loading="lazy"
-              />
-            </div>
-            <h4>Automatic Email Sender App</h4>
-            <p class="description">
-              Built a standalone email automation application that sends daily,
-              weekly, and monthly emails, including billing reminders,
-              Statements of Account (SOA), and other report notifications.
-              Supports custom timing, CC/BCC, and send logs. Reduces manual
-              effort and ensures timely delivery.
-            </p>
-            <button class="show-more">Show more</button>
-            <dialog id="image-modal" class="image-modal">
-              <img id="modal-image" alt="" />
-              <button type="button" class="modal-close" aria-label="Close">
-                ×
-              </button>
-            </dialog>
-          </div>
-
-          <div class="project-card">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/sm-s.jpg"
-                alt="Service Management Screenshot"
-                class="project-img"
-              />
-            </div>
-            <h4>Service Management System</h4>
-            <p class="description">
-              Built complete service management system using C# WinForms +
-              MySQL. Implemented full tracking of active services, status
-              transitions and merchants, role-based access control (RBAC).
-              Integrated Crystal Reports and EPPlus for operational reporting
-              and Excel exports. Enforced validation across service lifecycle to
-              prevent invalid states.
-            </p>
-            <button class="show-more">Show more</button>
-          </div>
-
-          <div class="project-card">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/bm-s.jpg"
-                alt="Billing Management Screenshot"
-                class="project-img"
-              />
-            </div>
-            <h4>Billing & Invoice Automation</h4>
-            <p class="description">
-              Built billing automation module that generates structured billing
-              reports and invoices on a daily, weekly, or monthly basis. Exports
-              are created in Excel using (EPPlus) for accounting review,
-              improving accuracy and reducing manual effort in billing.
-            </p>
-            <button class="show-more">Show more</button>
-          </div>
-
-          <div class="project-card">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/hd-m.jpg"
-                alt="Helpdesk Management System Screenshot"
-                class="project-img"
-              />
-            </div>
-            <h4>Helpdesk Ticketing</h4>
-            <p class="description">
-              Implemented helpdesk ticketing system for service requests and
-              internal issues. Structured database for consistent ticket states
-              and lifecycle. Added validation rules preventing data
-              inconsistencies. Replaced manual tracking sheets with real-time
-              visibility.
-            </p>
-            <button class="show-more">Show more</button>
-          </div>
-
-          <div class="project-card">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/rb-s.jpg"
-                alt="Report Builder Screenshot"
-                class="project-img"
-              />
-            </div>
-            <h4>Report Builder App</h4>
-            <p class="description">
-              Built a dynamic report builder. Accepts structured Excel template
-              uploads and user-provided data. Parses templates, maps data fields
-              dynamically to layout. Generates formatted output reports
-              (PDF/Excel) with correct Format(Styling) and positioning.
-              Eliminated manual report reconfiguration for each new variant.
-            </p>
-            <button class="show-more">Show more</button>
-          </div>
-
-          <div class="project-card">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/inv-m.jpg"
-                alt="Inventory Management System Screenshot"
-                class="project-img"
-              />
-            </div>
-            <h4>Inventory Tracking</h4>
-            <p class="description">
-              Enhanced existing inventory system. Added real-time stock level
-              monitoring, complete logging of every item movement (in, out,
-              transfers), full transaction history, and detailed reporting on
-              stock changes and item flow. Enforced database constraints and
-              transaction safety to prevent negative quantities and data
-              inconsistencies.
-            </p>
-            <button class="show-more">Show more</button>
-          </div>
-
-          <div class="project-card">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/cw-s.jpg"
-                alt="Crops and Weather Prediction System Screenshot"
-                class="project-img"
-              />
-            </div>
-            <h4>Crops and Weather Prediction System (Thesis)</h4>
-            <p class="description">
-              Built a cross-platform web and mobile system for the Department of
-              Agriculture, Baguio City to monitor crop data and weather signals.
-              Integrated a Python-based neural network model for crop yield and
-              weather prediction via backend services. Designed the data flow
-              between prediction model and application layer to provide
-              real-time risk assessment and reporting for farmers.
-            </p>
-            <button class="show-more">Show more</button>
-          </div>
-
-          <div class="project-card">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/sr-m.jpg"
-                alt="SR Management System Screenshot"
-                class="project-img"
-              />
-            </div>
-            <h4>SR Management System (Thesis)</h4>
-            <p class="description">
-              Built a student management system for (United Methodist Church)
-              using VB.NET WinForms and MySQL. Implemented enrollment workflows,
-              fee tracking, subject assignment, grading modules, and role-based
-              authentication. Delivered a complete end-to-end management
-              solution.
-            </p>
-            <button class="show-more">Show more</button>
-          </div>
-
-          <div class="project-card">
-            <div class="project-img-wrapper">
-              <img
-                src="assets/images/rest-api.png"
-                alt="Crops and Weather Prediction System Screenshot"
-                class="project-img"
-              />
-            </div>
-            <h4>ASP.Net REST API</h4>
-            <p class="description">
-              Built modern RESTful API in ASP.NET Core featuring JWT
-              authentication, structured validation, consistent response
-              envelopes, and clean layered architecture. Endpoints built to
-              integrate with both desktop and web frontends. Applied current
-              .NET standards and best practices.
-            </p>
-            <button class="show-more">Show more</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="section alt fade-in">
-      <div class="container narrow">
-        <h3>Experience</h3>
-
-        <div class="timeline-item">
-          <h4>Software Developer</h4>
+    <!-- Navigation Header -->
+    <nav
+      class="sticky top-0 z-40 backdrop-blur-md bg-slate-50/80 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800/80 transition-colors"
+    >
+      <div
+        class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between"
+      >
+        <a
+          href="#about"
+          class="text-lg font-bold tracking-tight text-slate-900 dark:text-white hover:text-brand-500 transition-colors flex items-center gap-2"
+        >
           <span
-            >Castles International Technology and Services Philippines, Inc.
-            (2022 – 2026)</span
+            class="w-3 h-3 rounded-full bg-brand-500 inline-block animate-pulse"
+          ></span>
+          <span>Rocky Bantolo</span>
+        </a>
+
+        <!-- Nav Links -->
+        <div
+          class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-600 dark:text-slate-400"
+        >
+          <a
+            href="#about"
+            class="hover:text-slate-900 dark:hover:text-white transition-colors"
+            >About</a
           >
-          <p>
-            Developed and maintained C# WinForms applications and MySQL
-            databases used by Operations, Administration, Finance, and MIS
-            teams.
-          </p>
-          <ul class="timeline-list">
-            <li>
-              Developed a Finance Billing System that replaced Excel-based
-              servicing, inventory, and billing workflows involving more than
-              17,000 terminal and merchant records, reducing billing
-              reconciliation and validation time from approximately one month to
-              one week and providing clients with real-time access to terminal
-              and merchant information.
-            </li>
-            <li>
-              Developed a Helpdesk System for tracking support requests,
-              resolutions, and KPI metrics, eliminating up to one week of manual
-              KPI reporting through real-time monitoring.
-            </li>
-            <li>
-              Developed a Report Builder application that transformed client CSV
-              exports into required report formats based on predefined templates
-              and business rules.
-            </li>
-            <li>
-              Built an automated billing notification application that monitored
-              billing records, generated HTML email notifications, attached
-              Statement of Account (SOA) PDF documents for 45-day notices, and
-              automatically delivered scheduled reminders based on configurable
-              business rules and due dates.
-            </li>
-            <li>
-              Built an automated Statement of Account (SOA) PDF Generator that
-              converted billing data into PDF statements and generated documents
-              on scheduled intervals without manual intervention.
-            </li>
-            <li>
-              Maintained and optimized legacy MIS applications by implementing
-              feature enhancements, resolving production issues, and improving
-              application stability.
-            </li>
-            <li>
-              Maintained and optimized MySQL databases by developing stored
-              procedures, triggers, scheduled events, and optimized SQL queries
-              to improve application performance and reliability.
-            </li>
-            <li>
-              Integrated and maintained REST APIs for communication between
-              internal systems and external services.
-            </li>
-            <li>
-              Investigated and resolved production issues, application defects,
-              and database-related problems.
-            </li>
-            <li>
-              Gathered requirements from business users and translated them into
-              system features and process improvements
-            </li>
-            <li>
-              Used Git for source control and participated in AWS EC2
-              application deployments.
-            </li>
-          </ul>
+          <a
+            href="#experience"
+            class="hover:text-slate-900 dark:hover:text-white transition-colors"
+            >Experience</a
+          >
+          <a
+            href="#projects"
+            class="hover:text-slate-900 dark:hover:text-white transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="hover:text-slate-900 dark:hover:text-white transition-colors"
+            >Skills</a
+          >
+          <a
+            href="#education"
+            class="hover:text-slate-900 dark:hover:text-white transition-colors"
+            >Credentials</a
+          >
         </div>
 
-        <div class="timeline-item">
-          <h4>Earlier Operational Experience</h4>
-          <span>Previous roles summary</span>
-          <ul class="timeline-list">
-            <li>
-              <strong>Key Entry Operator:</strong> Processed shipment
-              information according to business rules, maintained high data
-              accuracy, and prepared operational Excel reports.
-            </li>
-            <li>
-              <strong>Data Encoder:</strong> Developed Excel Template reporting
-              dashboards for inventory monitoring and forecasting. Provided
-              basic hardware, software, and network support.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section fade-in">
-      <div class="container narrow">
-        <h3>Contact</h3>
-        <p>
-          Email:
-          <a href="mailto:rocky.bantolo@gmail.com">rocky.bantolo@gmail.com</a>
-        </p>
-        <p>
-          LinkedIn:
+        <!-- Controls -->
+        <div class="flex items-center space-x-3">
+          <!-- DIRECT FILE LINK TO RESUME PDF -->
           <a
-            href="https://www.linkedin.com/in/rocky-bantolo-19952930a"
+            href="assets/Rocky_Bantolo.pdf"
             target="_blank"
-            rel="noopener"
-            >linkedin.com/in/rocky-bantolo</a
-          >
-        </p>
-        <p>
-          Portfolio:
-          <a
-            href="https://rockzbantolo.github.io"
-            target="_blank"
-            rel="noopener"
-            >rockzbantolo.github.io</a
-          >
-        </p>
-        <div class="resume-download">
-          <a
-            href="assets/files/Rocky_Bantolo.pdf"
             download="Rocky_Bantolo_Resume.pdf"
-            title="Download resume in PDF format"
+            class="p-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-white border border-slate-200 dark:border-slate-800 rounded-lg hover:border-brand-500/50 transition-all text-xs font-mono flex items-center gap-1.5 bg-white dark:bg-slate-900 shadow-sm"
+            title="Download Official Resume PDF"
           >
-            Download Resume (PDF)
+            <svg
+              class="w-4 h-4 text-brand-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path>
+            </svg>
+            <span class="hidden sm:inline font-semibold">Download Resume</span>
           </a>
+
+          <button
+            id="theme-toggle"
+            onclick="toggleTheme()"
+            class="p-2 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white border border-slate-200 dark:border-slate-800 rounded-lg hover:border-slate-300 dark:hover:border-slate-700 transition-all"
+            title="Toggle Theme (Key: T)"
+          >
+            <svg
+              id="sun-icon"
+              class="w-4 h-4 hidden dark:block"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              ></path>
+            </svg>
+            <svg
+              id="moon-icon"
+              class="w-4 h-4 block dark:hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              ></path>
+            </svg>
+          </button>
         </div>
       </div>
-    </section>
+    </nav>
 
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; <span id="year"></span> Rocky Bantolo</p>
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-20">
+      <!-- Executive Header & At A Glance -->
+      <header id="about" class="reveal space-y-8">
+        <div
+          class="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800"
+        >
+          <div class="space-y-3 max-w-2xl">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs font-mono"
+            >
+              <span>C# / .NET Software Developer</span>
+            </div>
+            <h1
+              class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+            >
+              Rocky John M. Bantolo
+            </h1>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-base leading-relaxed"
+            >
+              C#/.NET Software Developer with nearly four years of professional
+              experience engineering backend business tools, high-volume MySQL
+              databases, and process automation solutions for Finance,
+              Operations, MIS, and Admin teams.
+            </p>
+
+            <!-- Contact Bar -->
+            <div
+              class="flex flex-wrap items-center gap-4 text-xs font-mono pt-2 text-slate-500 dark:text-slate-400"
+            >
+              <span class="flex items-center gap-1.5">
+                <svg
+                  class="w-4 h-4 text-brand-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+                Mandaluyong City, Philippines
+              </span>
+              <a
+                href="mailto:rocky.bantolo@gmail.com"
+                onclick="
+                  copyText(
+                    'rocky.bantolo@gmail.com',
+                    'Email copied to clipboard',
+                  )
+                "
+                class="flex items-center gap-1.5 hover:text-brand-500 transition-colors"
+              >
+                <svg
+                  class="w-4 h-4 text-brand-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                rocky.bantolo@gmail.com
+              </a>
+              <a
+                href="tel:+639614088337"
+                class="flex items-center gap-1.5 hover:text-brand-500 transition-colors"
+              >
+                <svg
+                  class="w-4 h-4 text-brand-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+                +63 961-408-8337
+              </a>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-row md:flex-col gap-3 shrink-0">
+            <a
+              href="mailto:rocky.bantolo@gmail.com"
+              class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-lg font-medium text-sm transition-all shadow-md flex items-center justify-center gap-2"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+              Get In Touch
+            </a>
+            <button
+              onclick="
+                copyText('rocky.bantolo@gmail.com', 'Email address copied!')
+              "
+              class="px-4 py-2.5 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 rounded-lg font-medium text-sm transition-all flex items-center justify-center gap-2"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                ></path>
+              </svg>
+              Copy Email
+            </button>
+          </div>
+        </div>
+
+        <!-- Executive "At A Glance" Metrics Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm"
+          >
+            <div
+              class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400"
+            >
+              Experience
+            </div>
+            <div
+              class="text-2xl font-bold text-brand-600 dark:text-brand-400 mt-1"
+            >
+              4+ Years
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              Software Engineering
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm"
+          >
+            <div
+              class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400"
+            >
+              Finance Systems
+            </div>
+            <div class="text-2xl font-bold text-slate-900 dark:text-white mt-1">
+              17k+ Records
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              Billing Reconciliation
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm"
+          >
+            <div
+              class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400"
+            >
+              Efficiency Gain
+            </div>
+            <div
+              class="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1"
+            >
+              75% Cut
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              1 Month → 1 Week
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-xl shadow-sm"
+          >
+            <div
+              class="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400"
+            >
+              Honors
+            </div>
+            <div class="text-xl font-bold text-amber-500 mt-1">Programmer</div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              Of The Year Award
+            </p>
+          </div>
+        </div>
+
+        <!-- Enhanced Minimalist About Grid -->
+        <div class="grid md:grid-cols-12 gap-8 pt-4">
+          <div
+            class="md:col-span-5 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-800/80 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-6"
+          >
+            <div class="space-y-3">
+              <div
+                class="text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold"
+              >
+                Engineering Focus
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                Replacing Manual Friction with Automated Systems
+              </h3>
+              <p
+                class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
+              >
+                I specialize in diagnosing operational bottlenecks and
+                engineering robust C#/.NET desktop applications, REST services,
+                and optimized MySQL databases that transform manual workflows
+                into real-time business tools.
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <div class="text-xs font-mono text-slate-500 dark:text-slate-400">
+                Core Business Domains:
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span
+                  class="px-2.5 py-1 rounded-md text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                  >Finance & Billing</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                  >Helpdesk Operations</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                  >Document Automation</span
+                >
+                <span
+                  class="px-2.5 py-1 rounded-md text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                  >Reporting Analytics</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-7 grid sm:grid-cols-2 gap-4">
+            <div
+              class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-colors space-y-2"
+            >
+              <div class="p-2 w-fit rounded-lg bg-brand-500/10 text-brand-500">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                class="font-semibold text-slate-900 dark:text-white text-base"
+              >
+                Process Automation
+              </h4>
+              <p
+                class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
+              >
+                Replacing manual Excel spreadsheets and paper tracking with C#
+                automated applications, scheduled email triggers, and SOA PDF
+                generation.
+              </p>
+            </div>
+
+            <div
+              class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-colors space-y-2"
+            >
+              <div
+                class="p-2 w-fit rounded-lg bg-emerald-500/10 text-emerald-500"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 4 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                class="font-semibold text-slate-900 dark:text-white text-base"
+              >
+                Database Engineering
+              </h4>
+              <p
+                class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
+              >
+                Designing and optimizing high-volume MySQL databases using
+                stored procedures, views, triggers, indexes, and execution plan
+                optimization.
+              </p>
+            </div>
+
+            <div
+              class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-colors space-y-2"
+            >
+              <div class="p-2 w-fit rounded-lg bg-amber-500/10 text-amber-500">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                class="font-semibold text-slate-900 dark:text-white text-base"
+              >
+                Report & File Transformation
+              </h4>
+              <p
+                class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
+              >
+                Building report engine modules capable of converting massive raw
+                data files into formatted client reports and Crystal Reports in
+                seconds.
+              </p>
+            </div>
+
+            <div
+              class="p-5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-colors space-y-2"
+            >
+              <div
+                class="p-2 w-fit rounded-lg bg-purple-500/10 text-purple-500"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <h4
+                class="font-semibold text-slate-900 dark:text-white text-base"
+              >
+                REST APIs & Integrations
+              </h4>
+              <p
+                class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
+              >
+                Developing ASP.NET Core REST APIs with Entity Framework Core,
+                JSON endpoints, and clean async architecture for seamless data
+                exchange.
+              </p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Work Experience Section -->
+      <section id="experience" class="reveal space-y-8">
+        <div
+          class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4"
+        >
+          <h2
+            class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2"
+          >
+            <svg
+              class="w-6 h-6 text-brand-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 1321 13.255A2.36 2.36 0 0019 9.8 2.36 2.36 0 0016.745 7H7.255A2.36 2.36 0 005 9.8 2.36 2.36 0 007.255 13H17M5 13a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2M5 13V7a2 2 0 012-2h10a2 2 0 012 2v6"
+              ></path>
+            </svg>
+            Professional Experience
+          </h2>
+          <span class="text-xs font-mono text-slate-500 dark:text-slate-400"
+            >4+ Years Total</span
+          >
+        </div>
+
+        <div
+          class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm card-print"
+        >
+          <div
+            class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-100 dark:border-slate-800"
+          >
+            <div>
+              <span
+                class="text-xs font-mono text-brand-600 dark:text-brand-400 font-semibold uppercase tracking-wider"
+                >Primary Role</span
+              >
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                Software Developer
+              </h3>
+              <p class="text-sm font-medium text-slate-600 dark:text-slate-400">
+                Castles International Technology and Services Philippines, Inc.
+              </p>
+            </div>
+            <span
+              class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono rounded-full w-fit"
+            >
+              Aug 2022 — Apr 2026
+            </span>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div
+              class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800"
+            >
+              <div
+                class="text-2xl font-bold text-emerald-600 dark:text-emerald-400"
+              >
+                75% Reduction
+              </div>
+              <div
+                class="text-xs font-medium text-slate-700 dark:text-slate-300 mt-1"
+              >
+                Reconciliation Speed
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Cut billing reconciliation cycle from 1 month to 1 week.
+              </p>
+            </div>
+
+            <div
+              class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800"
+            >
+              <div
+                class="text-2xl font-bold text-brand-600 dark:text-brand-400"
+              >
+                17,000+ Records
+              </div>
+              <div
+                class="text-xs font-medium text-slate-700 dark:text-slate-300 mt-1"
+              >
+                Finance Scale
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Built billing engine handling high-volume operational records.
+              </p>
+            </div>
+
+            <div
+              class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800"
+            >
+              <div
+                class="text-2xl font-bold text-purple-600 dark:text-purple-400"
+              >
+                Seconds
+              </div>
+              <div
+                class="text-xs font-medium text-slate-700 dark:text-slate-300 mt-1"
+              >
+                Report Transformation
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                Converted massive raw files into customized client reports
+                instantly.
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+            <div class="space-y-1.5">
+              <h4
+                class="font-semibold text-slate-900 dark:text-white text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400"
+              >
+                Core Deliverables & Business Impact
+              </h4>
+              <ul
+                class="space-y-2 list-disc list-inside leading-relaxed text-slate-600 dark:text-slate-400"
+              >
+                <li>
+                  <strong class="text-slate-800 dark:text-slate-200"
+                    >Finance Billing System:</strong
+                  >
+                  Designed C#/.NET WinForms application managing 17,000+ billing
+                  records, replacing manual Excel matching with automated
+                  validation routines.
+                </li>
+                <li>
+                  <strong class="text-slate-800 dark:text-slate-200"
+                    >Centralized Helpdesk Tracking:</strong
+                  >
+                  Developed a company-wide helpdesk portal with KPI monitoring,
+                  request escalation, and resolution metric reporting for
+                  operational oversight.
+                </li>
+                <li>
+                  <strong class="text-slate-800 dark:text-slate-200"
+                    >Automated Document Workflows:</strong
+                  >
+                  Created scheduled background routines to generate Statement of
+                  Account (SOA) PDFs, build dynamic HTML emails, and send
+                  automated notifications without operator intervention.
+                </li>
+                <li>
+                  <strong class="text-slate-800 dark:text-slate-200"
+                    >Database Optimization:</strong
+                  >
+                  Authored optimized MySQL stored procedures, triggers, views,
+                  and index structures to maintain responsive UI speeds during
+                  heavy data queries.
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-2 flex flex-wrap gap-1.5">
+              <span
+                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded text-xs font-mono"
+                >C#</span
+              >
+              <span
+                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded text-xs font-mono"
+                >.NET WinForms</span
+              >
+              <span
+                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded text-xs font-mono"
+                >MySQL</span
+              >
+              <span
+                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded text-xs font-mono"
+                >REST APIs</span
+              >
+              <span
+                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded text-xs font-mono"
+                >Crystal Reports</span
+              >
+              <span
+                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded text-xs font-mono"
+                >PDF Generation</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-xl space-y-3"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-base">
+                  Key Entry Operator
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                  Freight Process Outsourcing Solutions Inc.
+                </p>
+              </div>
+              <span class="text-xs font-mono text-slate-400">2021 — 2022</span>
+            </div>
+            <p
+              class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              Processed freight shipment data and supported reporting activities
+              for operational workflows, ensuring high data accuracy standards
+              across high-volume log systems.
+            </p>
+          </div>
+
+          <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 rounded-xl space-y-3"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="font-bold text-slate-900 dark:text-white text-base">
+                  Data Encoder
+                </h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                  Promerch Unlimited Inc.
+                </p>
+              </div>
+              <span class="text-xs font-mono text-slate-400">2015 — 2016</span>
+            </div>
+            <p
+              class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              Maintained inventory databases and supported reporting activities,
+              laying an early foundation for understanding business process
+              workflows and inventory management.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Selected Projects & Case Studies -->
+      <section id="projects" class="reveal space-y-8">
+        <div
+          class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4"
+        >
+          <div>
+            <h2
+              class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2"
+            >
+              <svg
+                class="w-6 h-6 text-brand-500"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                ></path>
+              </svg>
+              Selected Projects & Case Studies
+            </h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              Click any card to inspect full case study details.
+            </p>
+          </div>
+
+          <div
+            class="flex items-center space-x-1.5 bg-slate-200/60 dark:bg-slate-800/60 p-1 rounded-lg text-xs font-mono w-fit"
+          >
+            <button
+              onclick="filterProjects('all')"
+              class="project-filter-btn px-3 py-1 rounded-md bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm"
+              data-filter="all"
+            >
+              All
+            </button>
+            <button
+              onclick="filterProjects('enterprise')"
+              class="project-filter-btn px-3 py-1 rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              data-filter="enterprise"
+            >
+              Enterprise
+            </button>
+            <button
+              onclick="filterProjects('automation')"
+              class="project-filter-btn px-3 py-1 rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              data-filter="automation"
+            >
+              Automation
+            </button>
+            <button
+              onclick="filterProjects('api')"
+              class="project-filter-btn px-3 py-1 rounded-md text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              data-filter="api"
+            >
+              Web/API
+            </button>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <!-- Project 1 -->
+          <div
+            class="project-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-brand-500/50 transition-all cursor-pointer shadow-sm flex flex-col justify-between"
+            data-category="enterprise"
+            onclick="openModal('project-billing')"
+          >
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium"
+                  >Enterprise Finance</span
+                >
+                <span class="text-xs font-mono text-slate-400"
+                  >17,000+ Records</span
+                >
+              </div>
+              <h3
+                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors flex items-center justify-between"
+              >
+                <span>Finance Billing System</span>
+                <svg
+                  class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </h3>
+              <p
+                class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2"
+              >
+                Automated billing reconciliation platform that reduced
+                accounting turnaround time from 1 month to 1 week.
+              </p>
+            </div>
+            <div
+              class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-4 text-xs font-mono text-slate-500"
+            >
+              <span>C#</span> &bull; <span>WinForms</span> &bull;
+              <span>MySQL</span> &bull; <span>Stored Procedures</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="project-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-brand-500/50 transition-all cursor-pointer shadow-sm flex flex-col justify-between"
+            data-category="enterprise"
+            onclick="openModal('project-helpdesk')"
+          >
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 font-medium"
+                  >Operations & MIS</span
+                >
+                <span class="text-xs font-mono text-slate-400"
+                  >KPI Tracking</span
+                >
+              </div>
+              <h3
+                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors flex items-center justify-between"
+              >
+                <span>Centralized Helpdesk System</span>
+                <svg
+                  class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </h3>
+              <p
+                class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2"
+              >
+                Support-tracking portal providing real-time ticket escalation,
+                SLA monitoring, and operational KPI reporting.
+              </p>
+            </div>
+            <div
+              class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-4 text-xs font-mono text-slate-500"
+            >
+              <span>C#</span> &bull; <span>MySQL</span> &bull;
+              <span>Views & Triggers</span> &bull; <span>Reporting</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="project-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-brand-500/50 transition-all cursor-pointer shadow-sm flex flex-col justify-between"
+            data-category="automation"
+            onclick="openModal('project-report')"
+          >
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium"
+                  >Data Automation</span
+                >
+                <span class="text-xs font-mono text-slate-400"
+                  >Instant Execution</span
+                >
+              </div>
+              <h3
+                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors flex items-center justify-between"
+              >
+                <span>High-Speed Report Builder</span>
+                <svg
+                  class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </h3>
+              <p
+                class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2"
+              >
+                Engine that parses raw transaction files and formats them into
+                client-specific documents in seconds.
+              </p>
+            </div>
+            <div
+              class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-4 text-xs font-mono text-slate-500"
+            >
+              <span>C#</span> &bull; <span>LINQ</span> &bull;
+              <span>Crystal Reports</span> &bull; <span>File IO</span>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div
+            class="project-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-6 hover:border-brand-500/50 transition-all cursor-pointer shadow-sm flex flex-col justify-between"
+            data-category="api"
+            onclick="openModal('project-api')"
+          >
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span
+                  class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 font-medium"
+                  >Web / Backend</span
+                >
+                <span class="text-xs font-mono text-slate-400"
+                  >REST Service</span
+                >
+              </div>
+              <h3
+                class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-500 transition-colors flex items-center justify-between"
+              >
+                <span>ASP.NET Core REST API</span>
+                <svg
+                  class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </h3>
+              <p
+                class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2"
+              >
+                Clean architecture REST service demonstrating async/await
+                patterns, EF Core, dependency injection, and Swagger docs.
+              </p>
+            </div>
+            <div
+              class="flex flex-wrap gap-1.5 pt-4 border-t border-slate-100 dark:border-slate-800/60 mt-4 text-xs font-mono text-slate-500"
+            >
+              <span>ASP.NET Core</span> &bull; <span>EF Core</span> &bull;
+              <span>JSON</span> &bull; <span>Swagger</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Searchable Skills Matrix -->
+      <section id="skills" class="reveal space-y-8">
+        <div
+          class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4"
+        >
+          <h2
+            class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2"
+          >
+            <svg
+              class="w-6 h-6 text-brand-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              ></path>
+            </svg>
+            Technical Capabilities
+          </h2>
+
+          <div class="relative w-full sm:w-64">
+            <input
+              type="text"
+              id="skill-search"
+              onkeyup="searchSkills()"
+              placeholder="Search skills (e.g., MySQL)..."
+              class="w-full pl-9 pr-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-xs focus:outline-none focus:border-brand-500 transition-colors text-slate-900 dark:text-white"
+            />
+            <svg
+              class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="skill-group space-y-3">
+            <h3
+              class="text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold"
+            >
+              Languages & Frameworks
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>C# / .NET</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>Java & VB.NET</span>
+                <span class="text-xs font-mono text-slate-400"
+                  >Intermediate</span
+                >
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>C++</span>
+                <span class="text-xs font-mono text-slate-400"
+                  >Intermediate</span
+                >
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>ASP.NET Core</span>
+                <span class="text-xs font-mono text-slate-400"
+                  >Intermediate</span
+                >
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>Entity Framework Core</span>
+                <span class="text-xs font-mono text-slate-400">Basic</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>LINQ & Async/Await</span>
+                <span class="text-xs font-mono text-slate-400"
+                  >Intermediate</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-group space-y-3">
+            <h3
+              class="text-xs font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold"
+            >
+              Database Engineering
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>MySQL & SQL</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>Stored Procedures</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>Triggers & Views</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>SQL Optimization</span>
+                <span class="text-xs font-mono text-slate-400"
+                  >Intermediate</span
+                >
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>System Interfaces</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-group space-y-3">
+            <h3
+              class="text-xs font-mono uppercase tracking-wider text-purple-600 dark:text-purple-400 font-semibold"
+            >
+              APIs & Reporting
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>REST APIs & JSON</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>Postman & Swagger</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>Crystal Reports</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>PDF Generation</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>HTML / CSS</span>
+                <span class="text-xs font-mono text-slate-400"
+                  >Intermediate</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="skill-group space-y-3">
+            <h3
+              class="text-xs font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-semibold"
+            >
+              Core Competencies & Tools
+            </h3>
+            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>Git & GitHub</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>Visual Studio / VS Code</span>
+                <span class="text-xs font-mono text-slate-400">Proficient</span>
+              </li>
+              <li
+                class="skill-item flex items-center justify-between p-2 rounded bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"
+              >
+                <span>OOP Architecture</span>
+                <span class="text-xs font-mono text-slate-400"
+                  >Intermediate</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Credentials, Education & Honors -->
+      <section id="education" class="reveal space-y-8">
+        <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+          <h2
+            class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2"
+          >
+            <svg
+              class="w-6 h-6 text-brand-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l9-5-9-5-9 5 9 5z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              ></path>
+            </svg>
+            Credentials, Education & Honors
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-xl space-y-3 flex flex-col justify-between"
+          >
+            <div class="space-y-2">
+              <span
+                class="text-xs font-mono text-brand-500 font-semibold uppercase"
+                >Degree</span
+              >
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                Bachelor of Science in Information Technology
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Jose Rizal University (2017 — 2023)
+              </p>
+            </div>
+            <div
+              class="pt-3 border-t border-slate-100 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400"
+            >
+              Focused on Software Engineering, Database Systems, and Enterprise
+              Application Development.
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-xl space-y-3 flex flex-col justify-between"
+          >
+            <div class="space-y-2">
+              <span
+                class="text-xs font-mono text-amber-500 font-semibold uppercase"
+                >Diploma & Honors</span
+              >
+              <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                Diploma in Software Development
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                ACLC Mandaluyong (2012 — 2014)
+              </p>
+            </div>
+            <div
+              class="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-1"
+            >
+              <div
+                class="flex items-center gap-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <span>Programmer of the Year</span>
+              </div>
+              <div
+                class="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400"
+              >
+                <span>Best in Thesis Award</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer
+        class="border-t border-slate-200 dark:border-slate-800 pt-8 pb-12 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 space-y-4 sm:space-y-0"
+      >
+        <div>&copy; Rocky John M. Bantolo. All rights reserved.</div>
+        <div class="flex items-center space-x-4 font-mono">
+          <span>C#</span>
+          <span>.NET</span>
+          <span>MySQL</span>
+          <span>REST API</span>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Modals -->
+    <div
+      id="project-billing"
+      class="modal fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto relative shadow-2xl"
+      >
+        <button
+          onclick="closeModal('project-billing')"
+          class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 dark:hover:text-white p-1 rounded-lg"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+        <div class="space-y-2">
+          <span
+            class="text-xs font-mono text-emerald-500 uppercase font-semibold"
+            >Case Study</span
+          >
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+            Finance Billing System
+          </h3>
+        </div>
+        <div
+          class="space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed"
+        >
+          <div>
+            <h4
+              class="font-bold text-slate-900 dark:text-white text-xs font-mono uppercase tracking-wider text-brand-500"
+            >
+              Problem Statement
+            </h4>
+            <p class="mt-1">
+              Finance teams spent nearly a month manually cross-referencing and
+              reconciling thousands of billing records using fragmented Excel
+              spreadsheets.
+            </p>
+          </div>
+          <div>
+            <h4
+              class="font-bold text-slate-900 dark:text-white text-xs font-mono uppercase tracking-wider text-brand-500"
+            >
+              Solution
+            </h4>
+            <p class="mt-1">
+              Architected a custom C#/.NET WinForms application backed by an
+              optimized MySQL relational schema with automated reconciliation
+              logic.
+            </p>
+          </div>
+        </div>
+        <div
+          class="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end"
+        >
+          <button
+            onclick="closeModal('project-billing')"
+            class="px-4 py-2 bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-lg text-xs font-mono"
+          >
+            Close
+          </button>
+        </div>
       </div>
-    </footer>
-    <button id="back-to-top" aria-label="Back to top">↑</button>
-    <script src="assets/js/main.js" defer></script>
+    </div>
+
+    <!-- External JS -->
+    <script src="js/app.js"></script>
   </body>
 </html>
