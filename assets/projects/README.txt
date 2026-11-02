@@ -1,1 +1,0 @@
-Place project screenshots and gallery images here.
