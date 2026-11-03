@@ -97,6 +97,23 @@ function filterSkillGroup(group) {
   });
 }
 
+function updateProjectCounts() {
+  const cards = [...document.querySelectorAll(".project-card")];
+  const counts = {
+    all: cards.length,
+    professional: cards.filter((card) => card.dataset.category === "professional").length,
+    personal: cards.filter((card) => card.dataset.category === "personal").length,
+  };
+
+  document.querySelectorAll("[data-project-count]").forEach((element) => {
+    const category = element.dataset.projectCount;
+    element.textContent = counts[category] ?? 0;
+  });
+
+  const total = document.getElementById("project-total-count");
+  if (total) total.textContent = counts.all;
+}
+
 function filterProjects(category) {
   const cards = document.querySelectorAll(".project-card");
   const filterBtns = document.querySelectorAll(".project-filter-btn");
@@ -119,6 +136,8 @@ function filterProjects(category) {
     }
   });
 }
+
+updateProjectCounts();
 
 function openModal(id) {
   const modal = document.getElementById(id);
@@ -262,12 +281,35 @@ const leaveManagementGallery = [
   },
 ];
 
+
+const serviceManagementGallery = [
+  { title: "Overview Dashboard", src: "assets/projects/service-management/overview.jpg", category: "Overview" },
+  { title: "Live Operations", src: "assets/projects/service-management/live-operation.jpg", category: "Live Operation" },
+  { title: "Activity Timeline", src: "assets/projects/service-management/activity.jpg", category: "Activity" },
+  { title: "Workflow Monitoring", src: "assets/projects/service-management/workflow.jpg", category: "Workflow" },
+  { title: "Team Performance", src: "assets/projects/service-management/team.jpg", category: "Team" },
+  { title: "Service Quality", src: "assets/projects/service-management/service-quality.jpg", category: "Service Quality" },
+  { title: "Performance Metrics", src: "assets/projects/service-management/performance.jpg", category: "Performance" },
+  { title: "Inventory Management", src: "assets/projects/service-management/inventory.jpg", category: "Inventory" },
+  { title: "System Monitoring", src: "assets/projects/service-management/system.jpg", category: "System" },
+  { title: "Login & Authentication", src: "assets/projects/service-management/login.jpg", category: "Authentication" },
+];
+
+let currentGalleryItems = leaveManagementGallery;
+let currentGalleryTitle = "Leave Management System";
+let currentGalleryDescription = "Screenshots of employee, manager, and HR workflows";
+
 // Leave Management project gallery
 let activeFilter = "All";
 let currentLightboxIndex = 0;
 
-function openGalleryModal() {
+function openGalleryModal(project = "leave") {
   if (document.getElementById("gallery-modal")) return;
+  currentGalleryItems = project === "service" ? serviceManagementGallery : leaveManagementGallery;
+  currentGalleryTitle = project === "service" ? "Service Management System" : "Leave Management System";
+  currentGalleryDescription = project === "service"
+    ? "Admin interface organized into dashboard sections and workflows"
+    : "Screenshots of employee, manager, and HR workflows";
   activeFilter = "All";
   const modal = document.createElement("section");
   modal.id = "gallery-modal";
@@ -283,8 +325,8 @@ function openGalleryModal() {
             <span class="w-2 h-2 rounded-full bg-brand-500"></span>
             <span class="text-[11px] font-mono font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400">Project Showcase</span>
           </div>
-          <h2 id="gallery-title" class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Leave Management System</h2>
-          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Screenshots of employee, manager, and HR workflows</p>
+          <h2 id="gallery-title" class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white"><span id="gallery-project-name">${currentGalleryTitle}</span></h2>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">${currentGalleryDescription}</p>
         </div>
         <button type="button" onclick="closeGalleryModal()" aria-label="Close gallery" class="shrink-0 p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white hover:border-brand-500 transition-colors">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -294,11 +336,11 @@ function openGalleryModal() {
     <div class="shrink-0 border-b border-slate-200 dark:border-slate-800">
       <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div id="gallery-filters" class="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0" aria-label="Filter screenshots">
-          ${["All", "User", "Manager", "HR", "Auth"].map((cat) => `
+          ${["All", ...new Set(currentGalleryItems.map((item) => item.category))].map((cat) => `
             <button type="button" data-gallery-filter="${cat}" onclick="filterGallery('${cat}')" class="gallery-filter shrink-0 px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${cat === "All" ? "bg-brand-600 border-brand-600 text-white" : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-brand-500 hover:text-brand-500"}">${cat}</button>
           `).join("")}
         </div>
-        <p id="gallery-count" class="text-[11px] font-mono text-slate-500 dark:text-slate-400 whitespace-nowrap">15 screenshots</p>
+        <p id="gallery-count" class="text-[11px] font-mono text-slate-500 dark:text-slate-400 whitespace-nowrap">${currentGalleryItems.length} screenshots</p>
       </div>
     </div>
     <div class="flex-1 min-h-0 overflow-y-auto">
@@ -330,7 +372,7 @@ function openGalleryModal() {
 }
 
 function renderGalleryItems() {
-  const visibleItems = leaveManagementGallery
+  const visibleItems = currentGalleryItems
     .map((item, index) => ({ ...item, originalIndex: index }))
     .filter((item) => activeFilter === "All" || item.category === activeFilter);
   const grid = document.getElementById("gallery-grid");
@@ -338,7 +380,7 @@ function renderGalleryItems() {
   grid.innerHTML = visibleItems.map((item) => `
     <button type="button" onclick="openLightbox(${item.originalIndex})" class="group text-left overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-brand-500/60 hover:shadow-lg hover:shadow-brand-500/5 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500">
       <div class="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-950">
-        <img src="${item.src}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
+        <img src="${item.src}" alt="${item.title}" loading="lazy" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]" />
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent opacity-60 group-hover:opacity-100 transition-opacity"></div>
         <span class="absolute top-3 left-3 px-2 py-1 rounded-md bg-slate-950/75 text-white text-[10px] font-mono backdrop-blur-sm">${item.category}</span>
         <span class="absolute bottom-3 right-3 w-8 h-8 rounded-lg bg-white/90 text-slate-900 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 3h6v6M10 14L21 3M21 14v7H3V3h7"></path></svg></span>
@@ -364,15 +406,15 @@ function filterGallery(category) {
 }
 
 function getVisibleGalleryItems() {
-  return leaveManagementGallery
+  return currentGalleryItems
     .map((item, index) => ({ ...item, originalIndex: index }))
     .filter((item) => activeFilter === "All" || item.category === activeFilter);
 }
 
 function openLightbox(index) {
-  if (index < 0 || index >= leaveManagementGallery.length) return;
+  if (index < 0 || index >= currentGalleryItems.length) return;
   currentLightboxIndex = index;
-  const item = leaveManagementGallery[index];
+  const item = currentGalleryItems[index];
   const visibleItems = getVisibleGalleryItems();
   const visiblePosition = visibleItems.findIndex((entry) => entry.originalIndex === index);
   const image = document.getElementById("lightbox-img");
