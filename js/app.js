@@ -112,6 +112,11 @@ function updateProjectCounts() {
 
   const total = document.getElementById("project-total-count");
   if (total) total.textContent = counts.all;
+
+  // Keep the header navigation count synchronized with the project cards.
+  document.querySelectorAll("[data-project-nav-count]").forEach((element) => {
+    element.textContent = counts.all;
+  });
 }
 
 function filterProjects(category) {
