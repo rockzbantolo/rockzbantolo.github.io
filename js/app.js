@@ -300,6 +300,14 @@ const serviceManagementGallery = [
   { title: "Login & Authentication", src: "assets/projects/service-management/login.jpg", category: "Authentication" },
 ];
 
+const financeBillingGallery = [
+  { title: "Finance Billing Workspace", src: "assets/projects/finance-billing/finance-billing.jpg", category: "Billing" },
+];
+
+const misGallery = [
+  { title: "Management Information System Dashboard", src: "assets/projects/mis/management-information-system.jpg", category: "Operations Dashboard" },
+];
+
 let currentGalleryItems = leaveManagementGallery;
 let currentGalleryTitle = "Leave Management System";
 let currentGalleryDescription = "Screenshots of employee, manager, and HR workflows";
@@ -310,11 +318,32 @@ let currentLightboxIndex = 0;
 
 function openGalleryModal(project = "leave") {
   if (document.getElementById("gallery-modal")) return;
-  currentGalleryItems = project === "service" ? serviceManagementGallery : leaveManagementGallery;
-  currentGalleryTitle = project === "service" ? "Service Management System" : "Leave Management System";
-  currentGalleryDescription = project === "service"
-    ? "Admin interface organized into dashboard sections and workflows"
-    : "Screenshots of employee, manager, and HR workflows";
+  const galleryProjects = {
+    leave: {
+      items: leaveManagementGallery,
+      title: "Leave Management System",
+      description: "Screenshots of employee, manager, and HR workflows",
+    },
+    service: {
+      items: serviceManagementGallery,
+      title: "Service Management System",
+      description: "Admin interface organized into dashboard sections and workflows",
+    },
+    mis: {
+      items: misGallery,
+      title: "Management Information System (MIS)",
+      description: "Role-based operations and service management interface",
+    },
+    finance: {
+      items: financeBillingGallery,
+      title: "Finance Billing System",
+      description: "Billing, reconciliation, and finance operations interface",
+    },
+  };
+  const selectedGallery = galleryProjects[project] || galleryProjects.leave;
+  currentGalleryItems = selectedGallery.items;
+  currentGalleryTitle = selectedGallery.title;
+  currentGalleryDescription = selectedGallery.description;
   activeFilter = "All";
   const modal = document.createElement("section");
   modal.id = "gallery-modal";
